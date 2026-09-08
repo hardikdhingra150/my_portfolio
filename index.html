@@ -7,597 +7,17 @@
     <meta name="description" content="Hardik Dhingra — B.Tech CS student from Gurugram. Code is craft.">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Barlow+Condensed:ital,wght@0,400;0,700;0,900;1,700;1,900&family=Space+Mono:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Chakra+Petch:wght@400;500;600;700&family=Silkscreen:wght@400;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/devicon.min.css">
-    <style>
-        :root {
-            --black: #0a0a0a;
-            --white: #f2f0eb;
-            --yellow: #d4f700;
-            --cyan: #00e5ff;
-            --pink: #ff2d78;
-            --blue: #1a4bff;
-            --red: #ff2200;
-            --paper: #e8e4d9;
-        }
- 
-        *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-        html { scroll-behavior: smooth; }
-        body {
-            background: var(--white);
-            color: var(--black);
-            font-family: 'Space Mono', monospace;
-            overflow-x: hidden;
-            cursor: crosshair;
-        }
-        a { color: inherit; text-decoration: none; }
- 
-        /* ── NAV ── */
-        .nav {
-            position: sticky; top: 0; z-index: 100;
-            background: var(--black);
-            border-bottom: 3px solid var(--yellow);
-            display: flex; align-items: center; justify-content: space-between;
-            padding: 0 2rem; height: 52px;
-        }
-        .nav-logo {
-            font-family: 'Bebas Neue', cursive; font-size: 1.5rem;
-            color: var(--yellow); letter-spacing: 0.12em;
-        }
-        .nav-links { display: flex; gap: 0; }
-        .nav-links a {
-            font-family: 'Barlow Condensed', sans-serif; font-weight: 700;
-            font-size: 0.78rem; letter-spacing: 0.15em; text-transform: uppercase;
-            color: var(--white); padding: 0 1.1rem; height: 52px;
-            display: flex; align-items: center;
-            border-left: 1px solid rgba(255,255,255,0.1);
-            transition: background 0.15s, color 0.15s, transform 0.2s;
-        }
-        .nav-links a:hover { background: var(--yellow); color: var(--black); transform: translateY(-2px); }
- 
-        /* ── HERO ── */
-        .hero { display: grid; grid-template-columns: 1fr 1fr; min-height: 100vh; border-bottom: 4px solid var(--black); }
-        .hero-left {
-            background: var(--black); padding: 4rem 3rem;
-            display: flex; flex-direction: column; justify-content: space-between;
-            position: relative; overflow: hidden;
-        }
-        .hero-left::before {
-            content: 'HD'; position: absolute; right: -0.1em; top: -0.1em;
-            font-family: 'Bebas Neue', cursive; font-size: 22rem;
-            color: rgba(212,247,0,0.05); line-height: 1;
-            pointer-events: none; user-select: none;
-        }
-        .issue-tag {
-            font-family: 'Space Mono', monospace; font-size: 0.7rem;
-            color: var(--yellow); letter-spacing: 0.2em; text-transform: uppercase;
-            border: 1px solid var(--yellow); display: inline-block;
-            padding: 0.3rem 0.7rem; margin-bottom: 2rem;
-        }
-        .hero-name {
-            font-family: 'Bebas Neue', cursive;
-            font-size: clamp(5rem, 14vw, 13rem);
-            line-height: 0.88; color: var(--white); letter-spacing: -0.02em;
-        }
-        .hero-name span { color: var(--yellow); display: block; }
-        .hero-diagonal {
-            position: absolute; bottom: 6rem; left: 3rem;
-            transform: rotate(-6deg); transform-origin: left center;
-            font-family: 'Barlow Condensed', sans-serif; font-style: italic;
-            font-weight: 900; font-size: 1.1rem; color: var(--cyan);
-            letter-spacing: 0.08em; text-transform: uppercase;
-        }
-        .hero-actions { display: flex; gap: 1rem; flex-wrap: wrap; }
-        .btn {
-            font-family: 'Barlow Condensed', sans-serif; font-weight: 900;
-            font-size: 0.95rem; letter-spacing: 0.15em; text-transform: uppercase;
-            padding: 0.8rem 1.6rem; border: 3px solid currentColor;
-            display: inline-flex; align-items: center; gap: 0.5rem;
-            transition: background 0.15s, color 0.15s; cursor: pointer;
-        }
-        .btn-yellow { color: var(--yellow); }
-        .btn-yellow:hover { background: var(--yellow); color: var(--black); }
-        .btn-pink { color: var(--pink); }
-        .btn-pink:hover { background: var(--pink); color: var(--white); }
- 
-        .hero-right { display: grid; grid-template-rows: 1fr auto; border-left: 4px solid var(--black); }
-        .hero-img-zone {
-            background:
-                linear-gradient(135deg, rgba(26,75,255,0.08), rgba(255,45,120,0.08)),
-                var(--paper);
-            display: grid; grid-template-columns: 260px 1fr;
-            align-items: stretch; overflow: hidden; position: relative; border-bottom: 4px solid var(--black); min-height: 420px;
-        }
-        .hero-portrait-card {
-            position: relative; padding: 1.4rem; border-right: 4px solid var(--black);
-            background: repeating-linear-gradient(135deg, rgba(10,10,10,0.04) 0 10px, rgba(10,10,10,0.08) 10px 20px);
-            display: flex; align-items: center; justify-content: center;
-        }
-        .hero-portrait-card::before {
-            content: "LIVE";
-            position: absolute; top: 1rem; left: 1rem;
-            font-family: 'Barlow Condensed', sans-serif; font-weight: 900; font-size: 0.7rem;
-            letter-spacing: 0.18em; text-transform: uppercase;
-            color: var(--white); background: var(--red); padding: 0.3rem 0.5rem;
-            animation: blinkTag 1.2s steps(2, end) infinite;
-        }
-        .hero-portrait-card img {
-            width: 100%; max-width: 220px; aspect-ratio: 3 / 4;
-            object-fit: cover; border: 4px solid var(--black);
-            filter: grayscale(0.15) contrast(1.08); mix-blend-mode: multiply;
-            box-shadow: 12px 12px 0 var(--yellow);
-            animation: portraitFloat 5s ease-in-out infinite;
-        }
-        .hero-crazy-panel {
-            position: relative; overflow: hidden; padding: 1.4rem 1.5rem 1.2rem;
-            display: grid; grid-template-rows: auto auto 1fr auto; gap: 1rem;
-            background:
-                radial-gradient(circle at top right, rgba(255,45,120,0.18), transparent 35%),
-                radial-gradient(circle at 30% 80%, rgba(0,229,255,0.22), transparent 32%);
-        }
-        .hero-crazy-panel::before {
-            content: "";
-            position: absolute; inset: 0;
-            background-image:
-                linear-gradient(rgba(10,10,10,0.09) 1px, transparent 1px),
-                linear-gradient(90deg, rgba(10,10,10,0.09) 1px, transparent 1px);
-            background-size: 24px 24px;
-            pointer-events: none;
-        }
-        .hero-crazy-head {
-            position: relative; z-index: 1;
-            display: flex; align-items: start; justify-content: space-between; gap: 1rem;
-        }
-        .hero-crazy-head strong {
-            font-family: 'Bebas Neue', cursive; font-size: 2.5rem; line-height: 0.9;
-            letter-spacing: 0.04em; color: var(--black);
-        }
-        .hero-crazy-head span {
-            display: block; font-size: 0.64rem; letter-spacing: 0.18em; text-transform: uppercase; color: rgba(10,10,10,0.6);
-        }
-        .hero-scan {
-            position: relative; z-index: 1; height: 12px; overflow: hidden; border: 2px solid var(--black); background: rgba(255,255,255,0.45);
-        }
-        .hero-scan::before {
-            content: "";
-            position: absolute; inset: 0;
-            width: 42%;
-            background: linear-gradient(90deg, var(--yellow), var(--cyan), var(--pink));
-            animation: scanMove 2.4s linear infinite;
-        }
-        .hero-orbits {
-            position: relative; z-index: 1;
-            min-height: 120px; border: 3px solid var(--black); background: rgba(255,255,255,0.32);
-            overflow: hidden;
-        }
-        .hero-orbits::before,
-        .hero-orbits::after {
-            content: "";
-            position: absolute; border: 3px solid var(--black); border-radius: 50%;
-            inset: 18px;
-            animation: spinSlow 14s linear infinite;
-        }
-        .hero-orbits::after {
-            inset: 38px; border-style: dashed; animation-direction: reverse; animation-duration: 10s;
-        }
-        .orbit-core {
-            position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%);
-            width: 16px; height: 16px; background: var(--red); border: 3px solid var(--black); border-radius: 50%;
-            box-shadow: 0 0 0 10px rgba(255,34,0,0.1);
-        }
-        .orbit-chip {
-            position: absolute; padding: 0.35rem 0.55rem; border: 2px solid var(--black);
-            background: var(--white); font-family: 'Barlow Condensed', sans-serif; font-weight: 900;
-            font-size: 0.72rem; letter-spacing: 0.12em; text-transform: uppercase;
-        }
-        .orbit-chip.a { top: 12px; left: 18px; background: var(--yellow); animation: chipBounce 3.2s ease-in-out infinite; }
-        .orbit-chip.b { right: 18px; top: 36px; background: var(--cyan); animation: chipBounce 3.6s ease-in-out infinite 0.4s; }
-        .orbit-chip.c { left: 54px; bottom: 18px; background: var(--pink); color: var(--white); animation: chipBounce 3.4s ease-in-out infinite 0.2s; }
-        .hero-marquee {
-            position: relative; z-index: 1;
-            display: flex; gap: 2rem; white-space: nowrap; font-family: 'Barlow Condensed', sans-serif;
-            font-weight: 900; font-size: 0.9rem; letter-spacing: 0.16em; text-transform: uppercase;
-            color: var(--black); animation: miniTicker 12s linear infinite;
-        }
-        .hero-img-label {
-            position: absolute; bottom: 1rem; right: 1rem;
-            font-family: 'Space Mono', monospace; font-size: 0.62rem;
-            color: var(--black); letter-spacing: 0.15em; text-transform: uppercase;
-            writing-mode: vertical-rl; transform: rotate(180deg);
-        }
-        .hero-stats-panel {
-            background: var(--yellow); padding: 1.8rem 2rem;
-            display: grid; grid-template-columns: repeat(3,1fr); gap: 1px;
-        }
-        .hero-stat { padding: 0.5rem 1rem; border-left: 3px solid var(--black); transition: transform 0.25s ease, background 0.25s ease; }
-        .hero-stat:first-child { border-left: none; }
-        .hero-stat strong { display: block; font-family: 'Bebas Neue', cursive; font-size: 2.4rem; line-height: 1; color: var(--black); }
-        .hero-stat span { font-size: 0.62rem; text-transform: uppercase; letter-spacing: 0.12em; color: rgba(0,0,0,0.65); }
-        .hero-stat:hover { transform: translateY(-6px) rotate(-1deg); background: rgba(255,255,255,0.18); }
- 
-        /* ── SECTION BAR ── */
-        .section-label-bar {
-            background: var(--black); color: var(--yellow);
-            font-family: 'Barlow Condensed', sans-serif; font-weight: 900;
-            font-size: 0.72rem; letter-spacing: 0.3em; text-transform: uppercase;
-            padding: 0.55rem 2rem; display: flex; align-items: center; gap: 1rem;
-            position: relative; overflow: hidden;
-        }
-        .section-label-bar::before, .section-label-bar::after { content: '//'; opacity: 0.5; }
-        .section-label-bar::after {
-            position: absolute; top: 0; left: -20%;
-            width: 18%; height: 100%;
-            content: "";
-            opacity: 0.18;
-            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.9), transparent);
-            animation: labelSweep 5.4s linear infinite;
-        }
- 
-        /* ── ABOUT ── */
-        #about { border-bottom: 4px solid var(--black); }
-        .about-grid { display: grid; grid-template-columns: 1fr 1fr; }
-        .about-headline {
-            padding: 4rem 3rem; border-right: 4px solid var(--black); background: var(--white);
-        }
-        .about-headline h2 {
-            font-family: 'Bebas Neue', cursive; font-size: clamp(3.5rem,8vw,8rem);
-            line-height: 0.9; letter-spacing: -0.02em; margin-bottom: 2rem;
-        }
-        .about-headline h2 em { font-style: normal; color: var(--blue); }
-        .about-panels { display: grid; grid-template-rows: 1fr 1fr; }
-        .about-panel { padding: 2.5rem; border-bottom: 4px solid var(--black); transition: transform 0.28s ease, background 0.28s ease; }
-        .about-panel:last-child { border-bottom: none; }
-        .about-panel h3 {
-            font-family: 'Barlow Condensed', sans-serif; font-weight: 900;
-            font-size: 1rem; letter-spacing: 0.2em; text-transform: uppercase;
-            color: var(--pink); margin-bottom: 0.8rem;
-        }
-        .about-panel p { font-size: 0.82rem; line-height: 1.85; color: rgba(10,10,10,0.75); }
-        .about-panel:hover { transform: translateX(10px); background: rgba(255,255,255,0.55); }
-        .trait-list { list-style: none; display: flex; flex-direction: column; gap: 0.6rem; margin-top: 0.8rem; }
-        .trait-list li { font-size: 0.78rem; letter-spacing: 0.05em; padding-left: 1.2rem; position: relative; line-height: 1.7; color: rgba(10,10,10,0.75); transition: transform 0.2s ease, color 0.2s ease; }
-        .trait-list li::before { content: '→'; position: absolute; left: 0; color: var(--blue); font-weight: bold; }
-        .trait-list li:hover { transform: translateX(6px); color: var(--black); }
- 
-        /* ── PROJECTS ── */
-        #featured-work { border-bottom: 4px solid var(--black); }
-        .projects-editorial { display: grid; grid-template-columns: repeat(3,1fr); }
-        .project-card {
-            border-right: 4px solid var(--black); padding: 2.5rem 2rem;
-            position: relative; overflow: hidden; transition: background 0.2s, transform 0.25s ease;
-        }
-        .project-card:last-child { border-right: none; }
-        .project-card:nth-child(4), .project-card:nth-child(5), .project-card:nth-child(6) { border-top: 4px solid var(--black); }
-        .project-card:nth-child(6) { border-right: none; }
-        .project-card:hover { background: var(--black); transform: translateY(-10px) rotate(-1deg); }
-        .project-card:hover .project-number { color: var(--yellow); }
-        .project-card:hover .project-title { color: var(--white); }
-        .project-card:hover .project-desc { color: rgba(255,255,255,0.6); }
-        .project-card:hover .project-tag { border-color: rgba(255,255,255,0.25); color: rgba(255,255,255,0.55); }
-        .project-card:hover .project-link { color: var(--yellow); }
-        .project-number { font-family: 'Bebas Neue', cursive; font-size: 4.5rem; line-height: 1; color: rgba(10,10,10,0.08); margin-bottom: 0.5rem; transition: color 0.2s; }
-        .project-icon-badge {
-            width: 36px; height: 36px; display: grid; place-items: center;
-            font-size: 1.2rem; background: var(--yellow); border: 2px solid var(--black); margin-bottom: 0.8rem;
-            transition: transform 0.25s ease;
-        }
-        .project-card:hover .project-icon-badge { transform: rotate(12deg) scale(1.08); }
-        .project-title {
-            font-family: 'Barlow Condensed', sans-serif; font-weight: 900;
-            font-size: 1.9rem; letter-spacing: -0.01em; text-transform: uppercase;
-            line-height: 1; margin-bottom: 0.8rem; transition: color 0.2s;
-        }
-        .project-desc { font-size: 0.75rem; line-height: 1.75; color: rgba(10,10,10,0.65); margin-bottom: 1.2rem; transition: color 0.2s; }
-        .project-tags { display: flex; flex-wrap: wrap; gap: 0.4rem; margin-bottom: 1.4rem; }
-        .project-tag {
-            font-family: 'Space Mono', monospace; font-size: 0.6rem; letter-spacing: 0.1em;
-            text-transform: uppercase; padding: 0.25rem 0.6rem;
-            border: 1px solid rgba(10,10,10,0.25); transition: border-color 0.2s, color 0.2s;
-        }
-        .project-link {
-            font-family: 'Barlow Condensed', sans-serif; font-weight: 700;
-            font-size: 0.8rem; letter-spacing: 0.2em; text-transform: uppercase;
-            color: var(--blue); display: flex; align-items: center; gap: 0.4rem; transition: color 0.2s;
-        }
-        .project-link::after { content: ' →'; }
-
-        /* ── MID STRIP ── */
-        .signal-strip {
-            display: grid;
-            grid-template-columns: 1.1fr 0.9fr;
-            border-bottom: 4px solid var(--black);
-            border-top: 4px solid var(--black);
-            min-height: 260px;
-        }
-        .signal-left {
-            background: var(--cyan);
-            padding: 2.5rem 2rem;
-            border-right: 4px solid var(--black);
-            position: relative;
-            overflow: hidden;
-        }
-        .signal-left::before {
-            content: "BUILD MODE";
-            position: absolute;
-            right: -0.1em;
-            bottom: -0.12em;
-            font-family: 'Bebas Neue', cursive;
-            font-size: clamp(4rem, 10vw, 9rem);
-            line-height: 1;
-            color: rgba(10,10,10,0.09);
-            pointer-events: none;
-        }
-        .signal-kicker {
-            display: inline-block;
-            padding: 0.3rem 0.65rem;
-            border: 2px solid var(--black);
-            font-family: 'Barlow Condensed', sans-serif;
-            font-weight: 900;
-            font-size: 0.72rem;
-            letter-spacing: 0.18em;
-            text-transform: uppercase;
-            margin-bottom: 1rem;
-            background: var(--white);
-            animation: chipBounce 3s ease-in-out infinite;
-        }
-        .signal-left h3 {
-            font-family: 'Bebas Neue', cursive;
-            font-size: clamp(3rem, 7vw, 6rem);
-            line-height: 0.9;
-            letter-spacing: -0.02em;
-            max-width: 8ch;
-            margin-bottom: 1rem;
-        }
-        .signal-left p {
-            max-width: 42ch;
-            font-size: 0.75rem;
-            line-height: 1.8;
-            color: rgba(10,10,10,0.7);
-        }
-        .signal-right {
-            background: var(--black);
-            color: var(--white);
-            padding: 2rem;
-            display: grid;
-            grid-template-rows: auto 1fr;
-            gap: 1rem;
-            overflow: hidden;
-            position: relative;
-        }
-        .signal-wave {
-            height: 14px;
-            border: 2px solid var(--yellow);
-            background:
-                linear-gradient(90deg,
-                    var(--yellow) 0 10%,
-                    transparent 10% 20%,
-                    var(--pink) 20% 30%,
-                    transparent 30% 40%,
-                    var(--cyan) 40% 50%,
-                    transparent 50% 60%,
-                    var(--yellow) 60% 70%,
-                    transparent 70% 80%,
-                    var(--pink) 80% 90%,
-                    transparent 90% 100%);
-            background-size: 220% 100%;
-            animation: waveMove 4s linear infinite;
-        }
-        .signal-cards {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 0.8rem;
-            align-self: stretch;
-        }
-        .signal-mini {
-            border: 2px solid rgba(255,255,255,0.2);
-            padding: 1rem 0.9rem;
-            display: flex;
-            flex-direction: column;
-            justify-content: space-between;
-            min-height: 120px;
-            transition: transform 0.22s ease, border-color 0.22s ease, background 0.22s ease;
-        }
-        .signal-mini:hover {
-            transform: translateY(-8px) rotate(-1deg);
-            border-color: var(--yellow);
-            background: rgba(255,255,255,0.05);
-        }
-        .signal-mini strong {
-            font-family: 'Bebas Neue', cursive;
-            font-size: 1.7rem;
-            color: var(--yellow);
-            line-height: 1;
-        }
-        .signal-mini span {
-            font-size: 0.62rem;
-            letter-spacing: 0.12em;
-            text-transform: uppercase;
-            color: rgba(255,255,255,0.6);
-            line-height: 1.6;
-        }
- 
-        /* ── ARCHIVE ── */
-        #project-archive { border-bottom: 4px solid var(--black); }
-        .archive-ticker-row {
-            background: var(--cyan); padding: 0.8rem 2rem; overflow: hidden;
-            border-top: 3px solid var(--black); border-bottom: 3px solid var(--black);
-        }
-        .archive-ticker { display: flex; gap: 3rem; animation: ticker 30s linear infinite; white-space: nowrap; }
-        @keyframes ticker { from { transform: translateX(0); } to { transform: translateX(-50%); } }
-        .archive-ticker span { font-family: 'Barlow Condensed', sans-serif; font-weight: 900; font-size: 0.85rem; letter-spacing: 0.2em; text-transform: uppercase; color: var(--black); }
-        .archive-grid { display: grid; grid-template-columns: repeat(4,1fr); }
-        .archive-item {
-            padding: 1.6rem 1.5rem; border-right: 3px solid var(--black); border-bottom: 3px solid var(--black);
-            display: flex; flex-direction: column; gap: 0.3rem; transition: background 0.15s, transform 0.22s ease, box-shadow 0.22s ease;
-        }
-        .archive-item:hover { background: var(--yellow); transform: translateY(-8px) scale(1.02); box-shadow: 10px 10px 0 var(--black); }
-        .archive-item strong { font-family: 'Barlow Condensed', sans-serif; font-weight: 900; font-size: 1.1rem; text-transform: uppercase; letter-spacing: 0.02em; }
-        .archive-item span { font-family: 'Space Mono', monospace; font-size: 0.6rem; color: rgba(10,10,10,0.5); letter-spacing: 0.08em; text-transform: uppercase; }
- 
-        /* ── SKILLS ── */
-        #skills { border-bottom: 4px solid var(--black); }
-        .skills-layout { display: grid; grid-template-columns: 340px 1fr; }
-        .skills-heading {
-            background: var(--blue); padding: 3.5rem 2.5rem;
-            border-right: 4px solid var(--black); display: flex; flex-direction: column; justify-content: space-between;
-        }
-        .skills-heading h2 { font-family: 'Bebas Neue', cursive; font-size: 5.5rem; line-height: 0.88; color: var(--white); }
-        .skills-heading p { font-size: 0.75rem; line-height: 1.75; color: rgba(255,255,255,0.65); }
-        .skills-cards { display: grid; grid-template-columns: repeat(2,1fr); }
-        .skill-card { padding: 2.5rem 2rem; border-right: 3px solid var(--black); border-bottom: 3px solid var(--black); position: relative; overflow: hidden; transition: transform 0.25s ease, background 0.25s ease; }
-        .skill-card::before {
-            content: attr(data-num); position: absolute; right: -0.05em; bottom: -0.1em;
-            font-family: 'Bebas Neue', cursive; font-size: 7rem; color: rgba(10,10,10,0.04); line-height: 1; pointer-events: none;
-            transition: transform 0.25s ease, color 0.25s ease;
-        }
-        .skill-card h3 { font-family: 'Barlow Condensed', sans-serif; font-weight: 900; font-size: 1.3rem; text-transform: uppercase; letter-spacing: 0.05em; margin-bottom: 1rem; }
-        .skill-pills { display: flex; flex-wrap: wrap; gap: 0.5rem; margin-bottom: 1rem; }
-        .skill-pill {
-            display: inline-flex; align-items: center; gap: 0.45rem;
-            font-family: 'Space Mono', monospace; font-size: 0.65rem;
-            padding: 0.38rem 0.72rem; background: var(--black); color: var(--yellow); letter-spacing: 0.08em;
-        }
-        .skill-pill i, .skill-pill .skill-emoji { font-size: 0.88rem; line-height: 1; }
-        .skill-pill i:not(.colored) { color: var(--yellow); }
-        .skill-card p { font-size: 0.72rem; line-height: 1.8; color: rgba(10,10,10,0.6); }
-        .skill-card:hover { transform: translateY(-8px); background: rgba(255,255,255,0.65); }
-        .skill-card:hover::before { transform: scale(1.06); color: rgba(10,10,10,0.08); }
-        .skill-pill { transition: transform 0.2s ease, box-shadow 0.2s ease; }
-        .skill-pill:hover { transform: translateY(-3px); box-shadow: 4px 4px 0 var(--pink); }
- 
-        /* ── RESUME ── */
-        #resume { border-bottom: 4px solid var(--black); background: var(--black); }
-        .resume-inner { display: grid; grid-template-columns: 1fr 1fr; }
-        .resume-left { padding: 4rem 3rem; border-right: 4px solid var(--yellow); }
-        .resume-left h2 { font-family: 'Bebas Neue', cursive; font-size: clamp(4rem,9vw,9rem); line-height: 0.88; color: var(--white); margin-bottom: 2rem; }
-        .resume-left h2 span { color: var(--pink); }
-        .resume-status { border: 2px solid rgba(255,255,255,0.15); padding: 1.2rem 1.5rem; font-size: 0.75rem; line-height: 1.85; color: rgba(255,255,255,0.5); margin-bottom: 1.5rem; animation: statusGlow 2.8s ease-in-out infinite; }
-        .resume-right { padding: 4rem 3rem; display: flex; flex-direction: column; justify-content: center; gap: 1rem; }
-        .resume-info-block { padding: 1.2rem 1.5rem; border-left: 4px solid var(--yellow); background: rgba(255,255,255,0.04); transition: transform 0.24s ease, background 0.24s ease; }
-        .resume-info-block strong { display: block; font-family: 'Barlow Condensed', sans-serif; font-weight: 900; font-size: 1rem; text-transform: uppercase; letter-spacing: 0.1em; color: var(--yellow); margin-bottom: 0.3rem; }
-        .resume-info-block p { font-size: 0.72rem; color: rgba(255,255,255,0.5); line-height: 1.7; }
-        .resume-info-block:hover { transform: translateX(10px); background: rgba(255,255,255,0.08); }
- 
-        /* ── CONTACT ── */
-        #contact { border-bottom: 4px solid var(--black); }
-        .contact-layout { display: grid; grid-template-columns: 1fr 1fr; }
-        .contact-left { background: var(--pink); padding: 4rem 3rem; border-right: 4px solid var(--black); }
-        .contact-left h2 { font-family: 'Bebas Neue', cursive; font-size: clamp(4rem,9vw,9rem); line-height: 0.88; color: var(--white); margin-bottom: 2rem; }
-        .contact-left h2 em { font-style: normal; color: var(--black); }
-        .contact-links-list { list-style: none; display: flex; flex-direction: column; gap: 0.8rem; }
-        .contact-links-list li a {
-            font-family: 'Barlow Condensed', sans-serif; font-weight: 900;
-            font-size: 1.1rem; letter-spacing: 0.1em; text-transform: uppercase;
-            color: var(--white); display: flex; align-items: center; gap: 0.8rem;
-            padding: 0.8rem 1rem; border: 2px solid rgba(255,255,255,0.4);
-            transition: background 0.15s, color 0.15s, border-color 0.15s, transform 0.2s ease;
-        }
-        .contact-links-list li a:hover { background: var(--white); color: var(--pink); border-color: var(--white); transform: translateX(12px) skewX(-4deg); }
-        .contact-right { padding: 4rem 3rem; display: flex; flex-direction: column; justify-content: center; }
-        .contact-right .location-tag { font-family: 'Space Mono', monospace; font-size: 0.65rem; letter-spacing: 0.2em; text-transform: uppercase; color: rgba(10,10,10,0.45); margin-bottom: 1rem; }
-        .contact-right h3 { font-family: 'Bebas Neue', cursive; font-size: 3.5rem; line-height: 0.9; margin-bottom: 1.5rem; animation: titleNudge 4s ease-in-out infinite; transform-origin: left center; }
-        .contact-right p { font-size: 0.78rem; line-height: 1.85; color: rgba(10,10,10,0.6); max-width: 36ch; }
- 
-        /* ── FOOTER ── */
-        .footer { background: var(--black); padding: 2rem; display: flex; align-items: center; justify-content: space-between; gap: 1rem; flex-wrap: wrap; position: relative; overflow: hidden; }
-        .footer::before {
-            content: "";
-            position: absolute; inset: 0;
-            background: linear-gradient(90deg, transparent, rgba(212,247,0,0.08), transparent);
-            animation: footerSweep 7s linear infinite;
-        }
-        .footer-left { font-family: 'Bebas Neue', cursive; font-size: 1.5rem; color: var(--yellow); letter-spacing: 0.15em; }
-        .footer-right { font-family: 'Space Mono', monospace; font-size: 0.62rem; color: rgba(255,255,255,0.3); letter-spacing: 0.12em; text-transform: uppercase; }
-        .footer-right a { color: rgba(255,255,255,0.5); }
-        .footer-right a:hover { color: var(--yellow); }
- 
-        /* ── MOB ── */
-        .mob-menu-btn { display: none; background: none; border: 1px solid var(--yellow); color: var(--yellow); padding: 0.4rem 0.8rem; font-family: 'Barlow Condensed', sans-serif; font-weight: 900; font-size: 0.8rem; letter-spacing: 0.1em; cursor: pointer; }
-        .mob-menu { display: none; flex-direction: column; background: var(--black); border-bottom: 3px solid var(--yellow); }
-        .mob-menu.open { display: flex; }
-        .mob-menu a { padding: 1rem 2rem; border-bottom: 1px solid rgba(255,255,255,0.07); color: var(--white); font-family: 'Barlow Condensed', sans-serif; font-weight: 700; font-size: 1rem; letter-spacing: 0.15em; text-transform: uppercase; }
- 
-        /* ── REVEAL ── */
-        .reveal { opacity: 0; transform: translateY(30px) scale(0.98); transition: opacity 0.6s ease, transform 0.6s ease; }
-        .reveal.visible { opacity: 1; transform: none; }
-        .hero-animate { animation: heroRise 0.9s cubic-bezier(.2,.8,.2,1) both; }
-        .hero-animate-delay { animation-delay: 0.12s; }
-        .hero-animate-delay-2 { animation-delay: 0.24s; }
-
-        @keyframes portraitFloat {
-            0%, 100% { transform: translateY(0) rotate(-1deg); }
-            50% { transform: translateY(-10px) rotate(1deg); }
-        }
-        @keyframes blinkTag {
-            0%, 49% { opacity: 1; }
-            50%, 100% { opacity: 0.45; }
-        }
-        @keyframes scanMove {
-            from { transform: translateX(-110%); }
-            to { transform: translateX(260%); }
-        }
-        @keyframes spinSlow {
-            from { transform: rotate(0deg); }
-            to { transform: rotate(360deg); }
-        }
-        @keyframes chipBounce {
-            0%, 100% { transform: translateY(0); }
-            50% { transform: translateY(-8px); }
-        }
-        @keyframes miniTicker {
-            from { transform: translateX(0); }
-            to { transform: translateX(-50%); }
-        }
-        @keyframes heroRise {
-            from { opacity: 0; transform: translateY(26px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
-        @keyframes labelSweep {
-            from { transform: translateX(0); }
-            to { transform: translateX(700%); }
-        }
-        @keyframes footerSweep {
-            from { transform: translateX(-120%); }
-            to { transform: translateX(120%); }
-        }
-        @keyframes statusGlow {
-            0%, 100% { box-shadow: 0 0 0 rgba(212,247,0,0); border-color: rgba(255,255,255,0.15); }
-            50% { box-shadow: 0 0 26px rgba(212,247,0,0.18); border-color: rgba(212,247,0,0.45); }
-        }
-        @keyframes titleNudge {
-            0%, 100% { transform: translateX(0) rotate(0deg); }
-            50% { transform: translateX(8px) rotate(-1deg); }
-        }
-        @keyframes waveMove {
-            from { background-position: 0 0; }
-            to { background-position: 220% 0; }
-        }
- 
-        @media (max-width: 900px) {
-            .nav-links { display: none; }
-            .mob-menu-btn { display: block; }
-            .hero, .about-grid, .skills-layout, .contact-layout, .resume-inner, .signal-strip { grid-template-columns: 1fr; }
-            .hero-right { border-left: none; border-top: 4px solid var(--black); }
-            .hero-img-zone { grid-template-columns: 1fr; }
-            .hero-portrait-card { border-right: none; border-bottom: 4px solid var(--black); min-height: 320px; }
-            .signal-left { border-right: none; border-bottom: 4px solid var(--black); }
-            .signal-cards { grid-template-columns: 1fr; }
-            .about-headline, .skills-heading, .contact-left { border-right: none; border-bottom: 4px solid var(--black); }
-            .resume-left { border-right: none; border-bottom: 4px solid var(--yellow); }
-            .skills-cards { grid-template-columns: 1fr; }
-            .projects-editorial { grid-template-columns: 1fr; }
-            .project-card { border-right: none; border-bottom: 4px solid var(--black); }
-            .project-card:nth-child(4), .project-card:nth-child(5), .project-card:nth-child(6) { border-top: none; }
-            .archive-grid { grid-template-columns: repeat(2,1fr); }
-        }
-        @media (max-width: 500px) {
-            .hero-left { padding: 2.5rem 1.5rem; }
-            .hero-stats-panel { grid-template-columns: 1fr; }
-            .archive-grid { grid-template-columns: 1fr; }
-        }
-    </style>
+    <link rel="stylesheet" href="minecraft.css?v=tech-3">
 </head>
 <body>
+<div class="world-backdrop" aria-hidden="true">
+<video id="world-video" autoplay muted loop playsinline preload="metadata" tabindex="-1"><source src="https://motionbgs.com/dl/4k/1054/" type="video/mp4"></video>
+<div class="world-shade"></div><div class="world-grain"></div>
+</div>
+<div class="scroll-progress" aria-hidden="true"></div>
+<button class="motion-control" id="motion-control" type="button" aria-pressed="false">Ⅱ Pause motion</button>
  
 <header>
     <nav class="nav">
@@ -610,7 +30,7 @@
             <a href="#resume">Resume</a>
             <a href="#contact">Contact</a>
         </div>
-        <button class="mob-menu-btn" id="mob-btn">MENU</button>
+        <button class="mob-menu-btn" id="mob-btn" aria-expanded="false" aria-controls="mob-menu">MENU</button>
     </nav>
     <nav class="mob-menu" id="mob-menu">
         <a href="#about">About</a>
@@ -626,72 +46,29 @@
  
 <!-- HERO -->
 <section class="hero" id="top">
-    <div class="hero-left">
-        <div>
-            <div class="issue-tag">ISSUE:01 // PORTFOLIO</div>
-            <h1 class="hero-name">HARDIK<span>DHINGRA</span></h1>
-        </div>
-        <div class="hero-diagonal">// CODING IS CRAFT //</div>
-        <div>
-            <p style="font-size:0.78rem;line-height:1.8;color:rgba(255,255,255,0.55);max-width:36ch;margin-bottom:1.8rem;">
-                B.Tech CS student from Gurugram building web apps, backend systems, and product ideas with logic, curiosity, and craft.
-            </p>
-            <div class="hero-actions">
-                <a href="#featured-work" class="btn btn-yellow">↓ View Projects</a>
-                <a href="https://github.com/hardikdhingra150" class="btn btn-pink" target="_blank">GitHub →</a>
-            </div>
-        </div>
-    </div>
-    <div class="hero-right">
-        <div class="hero-img-zone">
-            <div class="hero-portrait-card hero-animate hero-animate-delay">
-                <img src="hardik.jpeg" alt="Hardik Dhingra" onerror="this.parentElement.style.background='#222'">
-            </div>
-            <div class="hero-crazy-panel hero-animate hero-animate-delay-2">
-                <div class="hero-crazy-head">
-                    <div>
-                        <span>Visual Mode</span>
-                        <strong>CRAFT<br>ENGINE</strong>
-                    </div>
-                    <div class="project-icon-badge" style="margin-bottom:0;background:var(--pink);color:var(--white);">⚙</div>
-                </div>
-                <div class="hero-scan"></div>
-                <div class="hero-orbits">
-                    <div class="orbit-core"></div>
-                    <div class="orbit-chip a">Builder</div>
-                    <div class="orbit-chip b">Backend</div>
-                    <div class="orbit-chip c">Ideas++</div>
-                </div>
-                <div class="hero-marquee">
-                    <span>Code</span><span>Craft</span><span>Systems</span><span>Design</span><span>Motion</span><span>Build</span>
-                    <span>Code</span><span>Craft</span><span>Systems</span><span>Design</span><span>Motion</span><span>Build</span>
-                </div>
-            </div>
-            <div class="hero-img-label">Photography · Portfolio · Gurugram</div>
-        </div>
-        <div class="hero-stats-panel">
-            <div class="hero-stat">
-                <strong>24+</strong>
-                <span>Repos on GitHub</span>
-            </div>
-            <div class="hero-stat">
-                <strong>2nd</strong>
-                <span>Year B.Tech</span>
-            </div>
-            <div class="hero-stat">
-                <strong>∞</strong>
-                <span>Ideas in progress</span>
-            </div>
-        </div>
-    </div>
+  <div class="world-label"><span></span> DEV WORLD / HARDIK'S PORTFOLIO <span class="world-coords">X: 28.46 &nbsp; Z: 77.03</span></div>
+  <div class="hero-copy">
+    <div class="issue-tag">ENTER THE BUILDER DIMENSION</div>
+    <h1>HARDIK<br><span>DHINGRA.</span></h1>
+    <p class="hero-motto">BUILD. EXPLORE. REPEAT.</p>
+    <p class="hero-description">Computer Science student. Curious builder.<br>Crafting web apps, backend systems, and ideas<br class="desktop-break"> that make life a little better.</p>
+    <div class="hero-actions"><a href="#featured-work" class="btn btn-green">Explore my builds <span>↗</span></a><a href="Had_Resume.pdf" class="btn" target="_blank" rel="noopener noreferrer">View resume ↓</a></div>
+  </div>
+  <div class="player-card code-card"><div class="code-title"><span></span> builder.config <span class="code-language">JS</span></div><pre><code><span class="code-purple">const</span> builder = {
+  name: <span class="code-green">"Hardik"</span>,
+  level: <span class="code-green">"3rd year B.Tech"</span>,
+  stack: [<span class="code-green">"Python", "Flask"</span>],
+  mode: <span class="code-green">"always building"</span>
+};<span class="code-cursor" aria-hidden="true">▍</span></code></pre></div>
+  <div class="hero-bottom"><span>CREATIVE MODE / LIMITLESS POSSIBILITIES</span><a href="#about">SCROLL TO EXPLORE ↓</a></div>
 </section>
- 
+<div class="world-stats"><div><strong>24+</strong><span>GitHub repositories</span></div><div><strong>3rd</strong><span>Year in B.Tech</span></div><div><strong>∞</strong><span>Ideas to craft</span></div><a href="https://github.com/hardikdhingra150" target="_blank" rel="noopener noreferrer">Visit my GitHub ↗</a></div>
 <!-- ABOUT -->
 <section id="about">
-    <div class="section-label-bar">About the Coder</div>
+    <div class="section-label-bar">01 / Meet the player</div>
     <div class="about-grid">
         <div class="about-headline reveal">
-            <h2>THE WIZARD <em>BEHIND</em> THE WORK</h2>
+            <h2>THE BUILDER <em>BEHIND</em> THE BLOCKS</h2>
             <p style="font-size:0.8rem;line-height:1.85;color:rgba(10,10,10,0.6);max-width:36ch;">
                 Hi, I'm Hardik — a Computer Science student from Gurugram. I'm deeply interested in web development and backend systems, and I use projects as my main vehicle for growth.
             </p>
@@ -716,7 +93,7 @@
  
 <!-- PROJECTS -->
 <section id="featured-work">
-    <div class="section-label-bar">Featured Projects</div>
+    <div class="section-label-bar">02 / The crafting inventory</div>
     <div class="projects-editorial">
         <article class="project-card reveal">
             <div class="project-number">01</div>
@@ -728,7 +105,7 @@
                 <span class="project-tag">MongoDB</span>
                 <span class="project-tag">HTML/CSS</span>
             </div>
-            <a class="project-link" href="https://github.com/hardikdhingra150/HealthQrApp" target="_blank">Open Repository</a>
+            <a class="project-link" href="https://github.com/hardikdhingra150/HealthQrApp" target="_blank" rel="noopener noreferrer">Open Repository</a>
         </article>
         <article class="project-card reveal">
             <div class="project-number">02</div>
@@ -740,7 +117,7 @@
                 <span class="project-tag">Full Stack</span>
                 <span class="project-tag">Product Build</span>
             </div>
-            <a class="project-link" href="https://github.com/hardikdhingra150/MamaCare" target="_blank">Open Repository</a>
+            <a class="project-link" href="https://github.com/hardikdhingra150/MamaCare" target="_blank" rel="noopener noreferrer">Open Repository</a>
         </article>
         <article class="project-card reveal">
             <div class="project-number">03</div>
@@ -752,7 +129,7 @@
                 <span class="project-tag">Web App</span>
                 <span class="project-tag">Experiment</span>
             </div>
-            <a class="project-link" href="https://github.com/hardikdhingra150/trackrail" target="_blank">Open Repository</a>
+            <a class="project-link" href="https://github.com/hardikdhingra150/trackrail" target="_blank" rel="noopener noreferrer">Open Repository</a>
         </article>
         <article class="project-card reveal">
             <div class="project-number">04</div>
@@ -764,7 +141,7 @@
                 <span class="project-tag">Debugging</span>
                 <span class="project-tag">Utility</span>
             </div>
-            <a class="project-link" href="https://github.com/hardikdhingra150/errorbuddy" target="_blank">Open Repository</a>
+            <a class="project-link" href="https://github.com/hardikdhingra150/errorbuddy" target="_blank" rel="noopener noreferrer">Open Repository</a>
         </article>
         <article class="project-card reveal">
             <div class="project-number">05</div>
@@ -776,7 +153,7 @@
                 <span class="project-tag">Product Concept</span>
                 <span class="project-tag">User Need</span>
             </div>
-            <a class="project-link" href="https://github.com/hardikdhingra150/Healix" target="_blank">Open Repository</a>
+            <a class="project-link" href="https://github.com/hardikdhingra150/Healix" target="_blank" rel="noopener noreferrer">Open Repository</a>
         </article>
         <article class="project-card reveal">
             <div class="project-number">06</div>
@@ -788,39 +165,14 @@
                 <span class="project-tag">Product</span>
                 <span class="project-tag">User Focus</span>
             </div>
-            <a class="project-link" href="https://github.com/hardikdhingra150/Dronaconnect" target="_blank">Open Repository</a>
+            <a class="project-link" href="https://github.com/hardikdhingra150/Dronaconnect" target="_blank" rel="noopener noreferrer">Open Repository</a>
         </article>
     </div>
 </section>
 
-<section class="signal-strip">
-    <div class="signal-left reveal">
-        <div class="signal-kicker">Cool Stuff Component</div>
-        <h3>IDEAS IN MOTION.</h3>
-        <p>A little interruption between featured work and the archive so the page breathes better. Think of it like a signal board: active builds, sharper direction, and a more designed transition between sections.</p>
-    </div>
-    <div class="signal-right reveal">
-        <div class="signal-wave"></div>
-        <div class="signal-cards">
-            <div class="signal-mini">
-                <strong>01</strong>
-                <span>Ship fast<br>learn faster</span>
-            </div>
-            <div class="signal-mini">
-                <strong>02</strong>
-                <span>Design with<br>attitude</span>
-            </div>
-            <div class="signal-mini">
-                <strong>03</strong>
-                <span>Build useful<br>things</span>
-            </div>
-        </div>
-    </div>
-</section>
- 
 <!-- ARCHIVE -->
 <section id="project-archive">
-    <div class="section-label-bar">Selected Archive — Restricted Section</div>
+    <div class="section-label-bar">03 / More in the chest</div>
     <div class="archive-ticker-row">
         <div class="archive-ticker">
             <span>Healix</span><span>//</span><span>Hackrons</span><span>//</span><span>Cineverse</span><span>//</span>
@@ -832,20 +184,20 @@
         </div>
     </div>
     <div class="archive-grid">
-        <a class="archive-item reveal" href="https://github.com/hardikdhingra150/Hackrons" target="_blank"><strong>Hackrons</strong><span>Hackathon-scale build</span></a>
-        <a class="archive-item reveal" href="https://github.com/hardikdhingra150/luna-care-app" target="_blank"><strong>luna-care-app</strong><span>Care-centered application</span></a>
-        <a class="archive-item reveal" href="https://github.com/hardikdhingra150/Cineverse" target="_blank"><strong>Cineverse</strong><span>Entertainment app concept</span></a>
-        <a class="archive-item reveal" href="https://github.com/hardikdhingra150/document-qa" target="_blank"><strong>document-qa</strong><span>Question answering workflow</span></a>
-        <a class="archive-item reveal" href="https://github.com/hardikdhingra150/Expense_Tracker_App" target="_blank"><strong>Expense Tracker</strong><span>Personal finance tracker</span></a>
-        <a class="archive-item reveal" href="https://github.com/hardikdhingra150/Doracare" target="_blank"><strong>Doracare</strong><span>Care platform repository</span></a>
-        <a class="archive-item reveal" href="https://github.com/hardikdhingra150/AI-Agent" target="_blank"><strong>AI-Agent</strong><span>Agentic AI exploration</span></a>
-        <a class="archive-item reveal" href="https://github.com/hardikdhingra150/rezzops" target="_blank"><strong>rezzops</strong><span>Operations-oriented product</span></a>
+        <a class="archive-item reveal" href="https://github.com/hardikdhingra150/Hackrons" target="_blank" rel="noopener noreferrer"><strong>Hackrons</strong><span>Hackathon-scale build</span></a>
+        <a class="archive-item reveal" href="https://github.com/hardikdhingra150/luna-care-app" target="_blank" rel="noopener noreferrer"><strong>luna-care-app</strong><span>Care-centered application</span></a>
+        <a class="archive-item reveal" href="https://github.com/hardikdhingra150/Cineverse" target="_blank" rel="noopener noreferrer"><strong>Cineverse</strong><span>Entertainment app concept</span></a>
+        <a class="archive-item reveal" href="https://github.com/hardikdhingra150/document-qa" target="_blank" rel="noopener noreferrer"><strong>document-qa</strong><span>Question answering workflow</span></a>
+        <a class="archive-item reveal" href="https://github.com/hardikdhingra150/Expense_Tracker_App" target="_blank" rel="noopener noreferrer"><strong>Expense Tracker</strong><span>Personal finance tracker</span></a>
+        <a class="archive-item reveal" href="https://github.com/hardikdhingra150/Doracare" target="_blank" rel="noopener noreferrer"><strong>Doracare</strong><span>Care platform repository</span></a>
+        <a class="archive-item reveal" href="https://github.com/hardikdhingra150/AI-Agent" target="_blank" rel="noopener noreferrer"><strong>AI-Agent</strong><span>Agentic AI exploration</span></a>
+        <a class="archive-item reveal" href="https://github.com/hardikdhingra150/rezzops" target="_blank" rel="noopener noreferrer"><strong>rezzops</strong><span>Operations-oriented product</span></a>
     </div>
 </section>
  
 <!-- SKILLS -->
 <section id="skills">
-    <div class="section-label-bar">Tech Stack // Disciplines</div>
+    <div class="section-label-bar">04 / Tools & enchantments</div>
     <div class="skills-layout">
         <div class="skills-heading reveal">
             <h2>TECH STACK //</h2>
@@ -894,30 +246,30 @@
  
 <!-- RESUME -->
 <section id="resume">
-    <div class="section-label-bar" style="background:var(--yellow);color:var(--black);">Resume Chamber</div>
+    <div class="section-label-bar" style="background:var(--yellow);color:var(--black);">05 / Player profile</div>
     <div class="resume-inner">
         <div class="resume-left reveal">
-            <h2>RESUME <span>CHAMBER</span></h2>
+            <h2>THE NEXT <span>ADVENTURE</span></h2>
             <p style="font-size:0.78rem;color:rgba(255,255,255,0.5);line-height:1.85;margin-bottom:1.5rem;max-width:36ch;">
-                Your resume is in the folder now, so this section is live and ready for recruiters to open or download.
+                Explore my education, projects, and technical skills. I’m looking for opportunities to learn, contribute, and build useful things.
             </p>
             <div class="resume-status">
-                ✓ Resume file detected. Visitors can now open <strong style="color:var(--yellow)">Had_Resume.pdf</strong> directly from your portfolio.
+                Quest ready: internships, collaborations, and interesting problems.
             </div>
-            <a href="Had_Resume.pdf" class="btn btn-yellow" style="margin-top:0.5rem;" target="_blank" download>Open Resume →</a>
+            <a href="Had_Resume.pdf" class="btn btn-yellow" style="margin-top:0.5rem;" target="_blank" rel="noopener noreferrer" download>Open Resume →</a>
         </div>
         <div class="resume-right reveal">
             <div class="resume-info-block reveal">
-                <strong>Live Resume File</strong>
-                <p>Had_Resume.pdf is now connected directly in the portfolio for quick viewing and downloading.</p>
+                <strong>Player résumé</strong>
+                <p>A closer look at my experience, education, and projects.</p>
             </div>
             <div class="resume-info-block reveal">
-                <strong>What to Include</strong>
-                <p>Education, key projects (HealthQrApp, MamaCare, AI-Agent), skills stack, and contact info. Keep it one clean page.</p>
+                <strong>What I build</strong>
+                <p>Healthcare tools, web applications, and experiments with AI — built with curiosity and practical problem solving.</p>
             </div>
             <div class="resume-info-block reveal">
                 <strong>Current Status</strong>
-                <p>2nd year B.Tech student actively building, experimenting, and looking for opportunities to grow through real work.</p>
+                <p>3rd year B.Tech student actively building, experimenting, and looking for opportunities to grow through real work.</p>
             </div>
         </div>
     </div>
@@ -925,14 +277,14 @@
  
 <!-- CONTACT -->
 <section id="contact">
-    <div class="section-label-bar">Owl Post // Get in Touch</div>
+    <div class="section-label-bar">06 / Start a multiplayer session</div>
     <div class="contact-layout">
         <div class="contact-left reveal">
             <h2>REACH <em>OUT.</em></h2>
             <ul class="contact-links-list">
                 <li><a href="mailto:hardikdhingra150@gmail.com">✉ hardikdhingra150@gmail.com</a></li>
-                <li><a href="https://www.linkedin.com/in/hardik-dhingra-ab2264280" target="_blank"> LinkedIn Profile →</a></li>
-                <li><a href="https://github.com/hardikdhingra150" target="_blank">⌥ GitHub Profile →</a></li>
+                <li><a href="https://www.linkedin.com/in/hardik-dhingra-ab2264280" target="_blank" rel="noopener noreferrer"> LinkedIn Profile →</a></li>
+                <li><a href="https://github.com/hardikdhingra150" target="_blank" rel="noopener noreferrer">⌥ GitHub Profile →</a></li>
             </ul>
         </div>
         <div class="contact-right reveal">
@@ -948,16 +300,16 @@
 <footer class="footer">
     <div class="footer-left">HARDIK DHINGRA // 2026</div>
     <div class="footer-right">
-        Built with brutalist editorial energy ·
-        <a href="https://github.com/hardikdhingra150/my_portfolio" target="_blank">View Source →</a>
+        Crafted one block at a time · <a href="https://motionbgs.com/portal-in-minecraft" target="_blank" rel="noopener noreferrer">Video credit ↗</a> ·
+        <a href="https://github.com/hardikdhingra150/my_portfolio" target="_blank" rel="noopener noreferrer">View Source →</a>
     </div>
 </footer>
  
 <script>
     const mobBtn = document.getElementById('mob-btn');
     const mobMenu = document.getElementById('mob-menu');
-    mobBtn.addEventListener('click', () => mobMenu.classList.toggle('open'));
-    mobMenu.querySelectorAll('a').forEach(a => a.addEventListener('click', () => mobMenu.classList.remove('open')));
+    mobBtn.addEventListener('click', () => { const open = mobMenu.classList.toggle('open'); mobBtn.setAttribute('aria-expanded', String(open)); });
+    mobMenu.querySelectorAll('a').forEach(a => a.addEventListener('click', () => { mobMenu.classList.remove('open'); mobBtn.setAttribute('aria-expanded', 'false'); }));
  
     const reveals = document.querySelectorAll('.reveal');
     const io = new IntersectionObserver((entries) => {
@@ -970,6 +322,7 @@
     }, { threshold: 0.12 });
     reveals.forEach(el => io.observe(el));
 </script>
+<script src="world-motion.js"></script>
 </body>
 </html>
  
