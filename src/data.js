@@ -174,7 +174,7 @@ export function projectsUsing(skill) {
 // projects plus the internship, for token sizes and the "used in" list
 export function usage(skill) {
   const list = projectsUsing(skill).map(p => ({ name: p.name, to: `/work/${p.slug}` }));
-  if (internship.stack.includes(skill)) list.unshift({ name: 'CityScene Global internship', to: '/experience' });
+  if (internship.stack.includes(skill)) list.unshift({ name: 'CityScene Global · Software Trainee', to: '/experience' });
   return list;
 }
 
@@ -183,29 +183,30 @@ export const journey = [
   { year: '2025', when: 'Semester 2 · 2025', tag: 'Learning', title: 'Learning the web, properly', place: 'Python · JavaScript · React · Git', text: 'Went deep on HTML, CSS, JavaScript and React, picked up Git and GitHub, and finished Udemy certifications in React and Git & GitHub.' },
   { year: '2025', when: 'Semester 3 · 2025', tag: 'Hackathons', title: 'First and second place', place: 'hackCBS 9.0 · HackWithMAIT 6.0', text: '1st place at hackCBS 9.0 (SSCBS, Delhi University) in the YugabyteDB track, out of 5,000+ registrations. 2nd place at HackWithMAIT 6.0 in the ES Solutions × CompeteHub sponsored track, out of 2,500+ registrations.' },
   { year: '2026', when: 'Semester 4 · 2026', tag: 'Building', title: 'Shipped ErrorBuddy and DronaConnect', place: 'pip install errorbuddy · dronaconnect.vercel.app', text: 'Published ErrorBuddy on PyPI, a CLI that explains Python errors in plain language, and launched DronaConnect, a college attendance portal with admin, teacher and student dashboards.' },
-  { year: '2026', when: 'Summer · Jun–Jul 2026', tag: 'Internship', title: 'Software Development Intern', place: 'CityScene Global Pvt. Ltd.', text: 'Contributed to five web and mobile applications across three client projects: two solar companies and an internal HRMS.' },
+  { year: '2026', when: 'May – Sept. 2026', tag: 'Experience', title: 'Software Trainee', place: 'CityScene Global Pvt. Ltd. · Jaipur', text: 'Shipped 35+ commits across the MK-Solar web and mobile repos: a 1,600+ line full-stack release, a Flutter app with role-based portals, and hardened document workflows.' },
   { year: '2026', when: 'Semester 5 · 2026', tag: 'Hackathon', title: 'Third hackathon win', place: 'Innovortex 3.0 · TechNeeds IGDTUW at IIIT Delhi', text: '1st place out of 1,800 participants and 15 offline finalist teams. Alongside it, open-source work: SkillForge, GhostAPI and the Notchi macOS suite.' },
 ];
 
 export const highlights = [
   ['3×', 'Hackathon winner · hackCBS, HackWithMAIT, Innovortex'],
   ['8.0', 'CGPA · B.Tech CSE'],
-  ['5', 'Apps contributed to as an intern'],
+  ['35+', 'Production commits as a Software Trainee'],
   ['GDG', 'Organised an event as Tech Lead'],
 ];
 
 export const internship = {
-  role: 'Software Development Intern',
+  role: 'Software Trainee',
   company: 'CityScene Global Pvt. Ltd.',
-  when: '1 June – 31 July 2026',
-  mode: '60-day hybrid internship',
-  summary: 'Contributed to five applications across three projects: mapping user flows, supporting web and mobile interface development, checking responsive layouts and form behaviour, and documenting testing observations.',
+  when: 'May 2026 – Sept. 2026',
+  mode: 'Jaipur, Rajasthan',
+  big: ['35+', 'commits'],
+  summary: 'Shipped 35+ commits across 2 production repos (web + mobile) for MK-Solar, a solar enquiry and project-management platform used by admins, partners, project heads and customers.',
   projects: [
-    { name: 'MK Solar', platform: 'Web + mobile', text: 'Dashboards, customer enquiry management, project tracking and reporting. Reviewed how project summaries, navigation and notifications worked on mobile.' },
-    { name: 'Dharti Solar', platform: 'Web + mobile', text: 'Enquiry tracking and admin screens, including user management and settings. Reviewed the mobile project-creation form that captures customer, site and system details.' },
-    { name: 'HRMS', platform: 'Internal mobile app', text: 'Employee workflows for attendance, check-in and check-out, profiles, and leave, travel and expense requests, with request and approval status tracking.' },
+    { name: '1,600+ line release', platform: 'Full stack', text: 'Node.js routes for enquiries, projects, task forms and uploads, plus a React/TypeScript admin panel with 5 report tabs: sales, operations, equipment, employees and partner geo.' },
+    { name: 'Flutter companion app', platform: 'Mobile', text: 'Brought the Flutter app to full parity with the web dashboard: role-based access control, 4 role portals, responsive landscape layouts and universal logout.' },
+    { name: 'Document workflows', platform: 'Security', text: 'Multi-document uploads, secure downloads, customer portal login, and fixes to deployed file-URL resolution.' },
   ],
-  stack: ['TypeScript', 'JavaScript', 'Flutter', 'Dart', 'XML', 'SQL', 'Prisma', 'Git & GitHub'],
+  stack: ['React', 'TypeScript', 'Node.js', 'Flutter', 'SQL', 'RBAC'],
 };
 
 export const education = [

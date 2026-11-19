@@ -89,7 +89,7 @@ export default function About() {
           <dl className="facts rv">
             <div><dt className="mono">Based in</dt><dd>{me.city}</dd></div>
             <div><dt className="mono">Studying</dt><dd>B.Tech CSE, 2024 – 2028 · CGPA 8.0</dd></div>
-            <div><dt className="mono">Interned at</dt><dd>CityScene Global, 2026</dd></div>
+            <div><dt className="mono">Experience</dt><dd>Software Trainee, CityScene Global</dd></div>
             <div><dt className="mono">Building</dt><dd>Notchi, SkillForge, GhostAPI</dd></div>
             <div><dt className="mono">Looking for</dt><dd>Internships & collaborations</dd></div>
           </dl>

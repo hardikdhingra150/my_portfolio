@@ -25,11 +25,11 @@ export default function Experience() {
         <CharField className="head-field" />
         <div className="ph-meta mono"><span>04 — Experience</span><span>2024 → now</span></div>
         <h1 className="ph-word"><Wipe text="EXPERIENCE" fit maxH={.3} step={.045} /></h1>
-        <p className="ph-lede rv">A software development internship on real client products, three hackathon wins, a package on PyPI, and a long log of things I’ve shipped since starting my B.Tech.</p>
+        <p className="ph-lede rv">Hands-on experience shipping production web and mobile code, three hackathon wins, a package on PyPI, and a long log of things I’ve shipped since starting my B.Tech.</p>
       </section>
 
       <section className="intern section">
-        <Label n="01">Internship</Label>
+        <Label n="01">Work experience</Label>
         <div className="in-card rv">
           <div className="in-head">
             <div>
@@ -37,7 +37,7 @@ export default function Experience() {
               <h2>{internship.role}</h2>
               <span className="in-co">{internship.company}</span>
             </div>
-            <div className="in-big" aria-hidden="true"><strong>60</strong><span className="mono">days</span></div>
+            <div className="in-big" aria-hidden="true"><strong>{internship.big[0]}</strong><span className="mono">{internship.big[1]}</span></div>
           </div>
           <p className="in-sum">{internship.summary}</p>
           <div className="in-projects">

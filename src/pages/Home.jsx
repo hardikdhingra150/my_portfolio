@@ -90,8 +90,8 @@ export default function Home() {
         <LitText text="Give me a fuzzy idea and I’ll hand you something you can click. I design, build and test web, mobile and macOS products end to end, from dashboards for solar companies to AI agents that repair their own skills, and I care about the small details that make software feel alive." />
         <div className="stats">
           <div className="rv"><strong><CountUp to={3} suffix="×" /></strong><span className="mono">Hackathon winner</span></div>
-          <div className="rv" style={{ '--i': 1 }}><strong><CountUp to={1} /></strong><span className="mono">Internship · CityScene Global</span></div>
-          <div className="rv" style={{ '--i': 2 }}><strong><CountUp to={5} /></strong><span className="mono">Client apps contributed to</span></div>
+          <div className="rv" style={{ '--i': 1 }}><strong><CountUp to={2} /></strong><span className="mono">Production repos · CityScene Global</span></div>
+          <div className="rv" style={{ '--i': 2 }}><strong><CountUp to={35} suffix="+" /></strong><span className="mono">Commits shipped as a trainee</span></div>
           <div className="rv" style={{ '--i': 3 }}><strong><CountUp to={1} /></strong><span className="mono">Package on PyPI</span></div>
         </div>
       </section>
@@ -103,7 +103,7 @@ export default function Home() {
         <Label n="03">Keep reading</Label>
         {[
           ['/skills', 'Skills', 'A jar of every tool I’ve shipped with. Grab one and throw it.'],
-          ['/experience', 'Experience', 'An internship, three hackathon wins and the path so far.'],
+          ['/experience', 'Experience', 'Software Trainee at CityScene Global, three hackathon wins and the path so far.'],
           ['/about', 'About', 'The person behind the builds, rendered in characters.'],
           ['/contact', 'Contact', 'Open to internships and collaborations. Say hello.'],
         ].map(([to, t, d], i) => (

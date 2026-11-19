@@ -92,7 +92,7 @@ export default function Skills() {
         <CharField className="head-field" />
         <div className="ph-meta mono"><span>03 — Skills</span><span>{Object.values(skillGroups).flat().length} tools in the jar</span></div>
         <h1 className="ph-word"><Wipe text="SKILLS" fit maxH={.3} /></h1>
-        <p className="ph-lede rv">No progress bars, no made-up percentages. Every token is a tool I’ve shipped with, and it gets bigger the more of my projects (and my internship) use it. Grab one and throw it.</p>
+        <p className="ph-lede rv">No progress bars, no made-up percentages. Every token is a tool I’ve shipped with, and it gets bigger the more of my projects (and my work at CityScene Global) use it. Grab one and throw it.</p>
       </section>
       <section className="skills section">
         <div className="sk-bar rv">
@@ -141,7 +141,7 @@ export default function Skills() {
             </div>
           ))}
         </div>
-        <p className="mono tb-note">Number = how many projects (and the internship) use it</p>
+        <p className="mono tb-note">Number = how many projects (and my CityScene Global work) use it</p>
       </section>
     </>
   );
