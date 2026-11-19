@@ -195,6 +195,9 @@ html.revealed .hc { animation: rise 1.25s var(--ease) var(--dl) both; }
 @keyframes drift { 0% { transform: translate(-18vw, -4vw) scale(.9); } 100% { transform: translate(18vw, 6vw) scale(1.15); } }
 .head-field { position: absolute; inset: 0; z-index: -1; -webkit-mask-image: linear-gradient(#000 55%, transparent); mask-image: linear-gradient(#000 55%, transparent); }
 .proj-hero { position: relative; overflow: hidden; isolation: isolate; }
+/* section backgrounds on Home and About (overflow: clip keeps sticky children working) */
+.fx { position: relative; isolation: isolate; overflow: clip; }
+.sec-field { position: absolute; inset: 0; z-index: -1; opacity: .7; pointer-events: none; -webkit-mask-image: linear-gradient(transparent, #000 14%, #000 86%, transparent); mask-image: linear-gradient(transparent, #000 14%, #000 86%, transparent); }
 .ph-meta { display: flex; justify-content: space-between; gap: 16px; color: var(--ink); margin-bottom: 18px; }
 .ph-word { font: 700 semi-condensed 120px/.86 var(--disp); color: var(--ember); letter-spacing: -.035em; margin: 0 -.02em; }
 .ph-lede { max-width: 640px; font-size: clamp(18px, 1.6vw, 22px); line-height: 1.45; color: #cfc4ad; margin-top: 40px; }

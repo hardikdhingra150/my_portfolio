@@ -30,8 +30,8 @@ export const projects = [
     tagline: 'Build what’s missing, repair what breaks, remember what works.',
     lines: ['SKILLS THAT', 'REPAIR', 'THEMSELVES'],
     summary: 'Self-evolving skill infrastructure for AI agents. Ask anything or drop in a spreadsheet: SkillForge reuses a skill, writes a new one, tests it in a sandbox, has a second model check the answer and saves it for everyone.',
-    features: ['One Studio for questions and CSV/Excel tasks, with a model picker (Auto, Claude, Codex or local)', 'New skills are written, sandbox-tested and verified by a second model', 'Failing skills run automatic fixes first, then a model rewrite, saved as a new version', 'Every step is visible: reused, created or repaired', 'React workspace on a FastAPI + PostgreSQL backend'],
-    stack: ['Python', 'FastAPI', 'PostgreSQL', 'React', 'LLMs'],
+    features: ['Sandboxed executor with CPU and time limits and approved tools', 'Cross-model verifier and cost-aware model routing, with SSE live streaming', 'An MCP server that exposes skills to Claude Code, Codex and Cursor', 'One Studio for questions and CSV/Excel tasks, with a model picker (Auto, Claude, Codex or local)', 'New skills are written, sandbox-tested and verified by a second model', 'Failing skills run automatic fixes first, then a model rewrite, saved as a new version', 'Every step is visible: reused, created or repaired', 'React workspace on a FastAPI + PostgreSQL backend'],
+    stack: ['Python', 'FastAPI', 'PostgreSQL', 'React', 'LLMs', 'MCP'],
     live: 'https://skillforge-beta-lilac.vercel.app', repo: 'SkillForge', art: 'gear', theme: 'ember', featured: true,
   },
   {
@@ -48,8 +48,8 @@ export const projects = [
     tagline: 'APIs for websites that never had one.',
     lines: ['NO API?', 'NOW THERE', 'IS ONE'],
     summary: 'GhostAPI drives browser workflows with Playwright, stores the workflow definition, records every run and exposes the result as a normal HTTP API returning clean JSON.',
-    features: ['Website UI → browser workflow → extraction → JSON endpoint', 'Workflow definitions stored and every run recorded', 'Fastify HTTP API', 'Started with a college-portal attendance API'],
-    stack: ['TypeScript', 'Fastify', 'Playwright', 'Node.js'],
+    features: ['Website UI → recorded Playwright workflow → clean JSON endpoint', 'A Chrome extension recorder that builds APIs directly from any site', 'Run history, failure screenshots and workflow versioning with diff and restore', 'Hashed API keys; deployed on Google Cloud Run with Neon Postgres and Cloudflare R2'],
+    stack: ['TypeScript', 'Fastify', 'Playwright', 'PostgreSQL', 'Docker'],
     live: 'https://ghostapi-eight.vercel.app/', repo: 'Ghost_Api', art: 'ghost', theme: 'dark',
   },
   {
@@ -63,11 +63,11 @@ export const projects = [
   },
   {
     slug: 'dronaconnect', cover: 'DRONACONNECT', name: 'DronaConnect', year: 2026, kind: 'Education · ERP', cat: 'Web',
-    tagline: 'A whole college, in one portal.',
+    tagline: 'Attendance for a whole college, in one portal.',
     lines: ['ONE PORTAL', 'EVERY', 'CLASSROOM'],
-    summary: 'A full-stack academic ERP portal that streamlines college operations across Admin, Teacher and Student roles. Deployed on Vercel.',
-    features: ['Role-based access control for Admin, Teacher and Student', 'Real-time attendance tracking', 'An LMS with file submissions and grading', 'Modules for fees, library, timetable and research'],
-    stack: ['React', 'Firebase', 'Tailwind CSS'],
+    summary: 'A college attendance portal with separate admin, teacher and student dashboards, Firebase authentication and role-based routes. Deployed on Vercel.',
+    features: ['Separate dashboards and role-based routes for admin, teacher and student', 'Subject-wise attendance tracking with monthly reports and CSV exports', 'Recharts analytics and student attendance summaries', 'Alerts for any subject below 75% attendance'],
+    stack: ['React', 'Vite', 'Firebase', 'Tailwind CSS'],
     live: 'https://dronaconnect.vercel.app', repo: 'Dronaconnect', art: 'grid', theme: 'cream',
   },
   {
@@ -158,11 +158,11 @@ export const archive = [
 
 export const skillGroups = {
   Languages: ['Python', 'JavaScript', 'TypeScript', 'SQL', 'Dart', 'Swift', 'C++', 'C', 'Java', 'Solidity', 'HTML & CSS', 'XML'],
-  Frontend: ['React', 'Flutter', 'Next.js', 'Vite', 'Tailwind CSS', 'SwiftUI'],
-  Backend: ['Node.js', 'FastAPI', 'Flask', 'Django', 'Fastify', 'Prisma', 'PostgreSQL', 'MySQL', 'Firebase', 'Supabase'],
-  'AI & Data': ['LLMs', 'ML', 'Gemini', 'Pandas', 'NumPy', 'Matplotlib', 'Playwright'],
+  Frontend: ['React', 'Flutter', 'Next.js', 'Vite', 'Tailwind CSS', 'Three.js', 'SwiftUI'],
+  Backend: ['Node.js', 'Express', 'FastAPI', 'Flask', 'Django', 'Fastify', 'Prisma', 'PostgreSQL', 'MySQL', 'Firebase', 'Supabase'],
+  'AI & Data': ['LLMs', 'MCP', 'RAG', 'ML', 'scikit-learn', 'Ollama', 'Gemini', 'Pandas', 'NumPy', 'Playwright'],
   'Web3': ['Hardhat', 'Polygon', 'MetaMask'],
-  Tools: ['Git & GitHub', 'Vercel', 'Homebrew', 'VS Code', 'PyCharm'],
+  Tools: ['Git & GitHub', 'Docker', 'Vercel', 'Google Cloud Run', 'Homebrew', 'VS Code'],
 };
 
 // Where each skill shows up (counts drive the token sizes on the Skills page)
@@ -179,21 +179,19 @@ export function usage(skill) {
 }
 
 export const journey = [
-  { when: '2024', tag: 'Education', title: 'Started B.Tech in Computer Science', place: 'Dronacharya College of Engineering, Gurugram', text: 'First C programs in semester one, then a first Flask app in August 2024. That was enough to get hooked.' },
-  { when: '2025', tag: 'Building', title: 'Learning by shipping', place: 'Independent projects', text: 'HealthQrApp put medical records behind a QR code. Nexus put a talking 3D avatar on top of Gemini. Udemy certifications in React and Git & GitHub filled the gaps.' },
-  { when: '2026 · Jan', tag: 'Web3', title: 'Shipped Hackrons', place: 'Polygon · Solidity · React', text: 'A full NFT battle game: minting contracts, an 18+ warrior marketplace, turn-based AI battles and POL rewards.' },
-  { when: '2026 · Feb–Apr', tag: 'AI & Health', title: 'A run of AI and health products', place: 'MamaCare · Healix · Chef AI · TrackMind AI', text: 'ML risk scoring with WhatsApp alerts for expecting mothers, post-discharge monitoring, food-waste AI and live railway conflict detection.' },
-  { when: '2026 · Mar', tag: 'Open source', title: 'Published ErrorBuddy on PyPI', place: 'pip install errorbuddy', text: 'A CLI that explains Python runtime errors in plain language. In the same month, DronaConnect went live as a full college ERP.' },
-  { when: '2026 · Jun–Jul', tag: 'Internship', title: 'Software Development Intern', place: 'CityScene Global Pvt. Ltd. · 60-day hybrid', text: 'Contributed to five web and mobile applications across three client projects: two solar companies and an internal HRMS.' },
-  { when: '2026 · Aug–Oct', tag: 'Hackathons', title: 'National hackathon builds', place: 'AXIOM · AYUNEX · MedBridge', text: 'A virtual free-space optical communication lab with Team Naut IQ, an Ayurveda IP research workspace and a dual-coded medical terminology gateway. Three hackathon wins so far.' },
-  { when: '2026 · Sep–Nov', tag: 'Open source', title: 'Open-source products for real users', place: 'Notchi · SkillForge · GhostAPI', text: 'A whole-desktop macOS theming suite with its own Homebrew tap, self-repairing skills for AI agents, and APIs for websites that never had one.' },
+  { year: '2024', when: 'Semester 1 · 2024', tag: 'Day one', title: 'Started B.Tech in Computer Science', place: 'Dronacharya College of Engineering, Gurugram', text: 'Wrote my first C programs, a hangman game in C, and my first Flask app. That was enough to get hooked.' },
+  { year: '2025', when: 'Semester 2 · 2025', tag: 'Learning', title: 'Learning the web, properly', place: 'Python · JavaScript · React · Git', text: 'Went deep on HTML, CSS, JavaScript and React, picked up Git and GitHub, and finished Udemy certifications in React and Git & GitHub.' },
+  { year: '2025', when: 'Semester 3 · 2025', tag: 'Hackathons', title: 'First and second place', place: 'hackCBS 9.0 · HackWithMAIT 6.0', text: '1st place at hackCBS 9.0 (SSCBS, Delhi University) in the YugabyteDB track, out of 5,000+ registrations. 2nd place at HackWithMAIT 6.0 in the ES Solutions × CompeteHub sponsored track, out of 2,500+ registrations.' },
+  { year: '2026', when: 'Semester 4 · 2026', tag: 'Building', title: 'Shipped ErrorBuddy and DronaConnect', place: 'pip install errorbuddy · dronaconnect.vercel.app', text: 'Published ErrorBuddy on PyPI, a CLI that explains Python errors in plain language, and launched DronaConnect, a college attendance portal with admin, teacher and student dashboards.' },
+  { year: '2026', when: 'Summer · Jun–Jul 2026', tag: 'Internship', title: 'Software Development Intern', place: 'CityScene Global Pvt. Ltd.', text: 'Contributed to five web and mobile applications across three client projects: two solar companies and an internal HRMS.' },
+  { year: '2026', when: 'Semester 5 · 2026', tag: 'Hackathon', title: 'Third hackathon win', place: 'Innovortex 3.0 · TechNeeds IGDTUW at IIIT Delhi', text: '1st place out of 1,800 participants and 15 offline finalist teams. Alongside it, open-source work: SkillForge, GhostAPI and the Notchi macOS suite.' },
 ];
 
 export const highlights = [
-  ['3×', 'Hackathon winner'],
-  ['60', 'Days interning at CityScene Global'],
+  ['3×', 'Hackathon winner · hackCBS, HackWithMAIT, Innovortex'],
+  ['8.0', 'CGPA · B.Tech CSE'],
   ['5', 'Apps contributed to as an intern'],
-  ['1', 'Package on PyPI'],
+  ['GDG', 'Organised an event as Tech Lead'],
 ];
 
 export const internship = {
@@ -211,7 +209,7 @@ export const internship = {
 };
 
 export const education = [
-  ['B.Tech, Computer Science & Engineering', 'Dronacharya College of Engineering, Gurugram', '2024 – present · CGPA 7.6'],
+  ['B.Tech, Computer Science & Engineering', 'Dronacharya College of Engineering, Gurugram', '2024 – 2028 · CGPA 8.0'],
   ['Senior Secondary (CBSE)', 'D.R.A Senior Secondary School, Bahadurgarh', '2024 · 70%'],
   ['Secondary (CBSE)', 'Brigadier Ran Singh Public School, Jhajjar', '78%'],
 ];

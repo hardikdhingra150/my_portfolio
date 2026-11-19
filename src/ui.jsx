@@ -266,7 +266,8 @@ export function Footer() {
 export const Label = ({ n, children }) => <div className="label rv"><span className="n">{n}</span><span>{children}</span><i /></div>;
 
 /* ---------- a field of dim characters: an ambient wave drifts across, and they flare around the cursor ---------- */
-export function CharField({ className = '' }) {
+// variant 'wave': a diagonal shimmer sweeps across. 'rain': slow ember streams fall down some columns.
+export function CharField({ className = '', variant = 'wave' }) {
   const ref = useRef(null);
   useEffect(() => {
     const cv = ref.current, ctx = cv.getContext('2d'), dpr = Math.min(devicePixelRatio || 1, 2), CW = 12, CH = 18;
@@ -279,13 +280,21 @@ export function CharField({ className = '' }) {
       ctx.setTransform(1, 0, 0, 1, 0, 0); ctx.clearRect(0, 0, cv.width, cv.height);
       trail = trail.filter(p => t - p.t < .9);
       const wx = ((t * .12) % 1.6 - .3) * W; // ambient diagonal sweep
-      for (let r = 0; r < rows; r++) for (let c = 0; c < cols; c++) {
+      const rain = variant === 'rain';
+      for (let c = 0; c < cols; c++) {
+        // per-column stream: only ~1 in 4 columns carry one, each at its own speed
+        const cs = seed[c], on = rain && cs < .26, len = 6 + cs * 30, head = on ? ((t * (2 + cs * 14) + cs * 997) % (rows + len)) : -1;
+        for (let r = 0; r < rows; r++) {
         const i = r * cols + c, px = c * CW + CW / 2, py = r * CH + CH / 2;
-        let b = seed[i] < .35 ? .05 + .06 * Math.sin(t * 1.5 + seed[i] * 40) : 0;
-        const band = Math.exp(-(((px + py * .6 - wx) / 90) ** 2));
-        if (band > .05 && seed[i] < .6) b = Math.max(b, band * (.25 + .3 * Math.sin(t * 3 + seed[i] * 30)));
+        let b = seed[i] < (rain ? .22 : .35) ? .05 + .06 * Math.sin(t * 1.5 + seed[i] * 40) : 0;
+        if (rain) { const d = head - r; if (d >= 0 && d < len) b = Math.max(b, (1 - d / len) * (d < 1 ? .75 : .38)); }
+        else {
+          const band = Math.exp(-(((px + py * .6 - wx) / 90) ** 2));
+          if (band > .05 && seed[i] < .6) b = Math.max(b, band * (.25 + .3 * Math.sin(t * 3 + seed[i] * 30)));
+        }
         for (const p of trail) { const d = Math.hypot(px - p.x, py - p.y), age = t - p.t; b = Math.max(b, Math.exp(-d / 60) * (1 - age / .9) * .9); }
         if (b > .03) atlas.draw(ctx, b, .3 + b * .6, b > .2 ? 'ember' : 'cream', c * CW, r * CH);
+        }
       }
       if (!still && vis) raf = requestAnimationFrame(draw);
     };
@@ -295,6 +304,6 @@ export function CharField({ className = '' }) {
     const ro = new ResizeObserver(size); ro.observe(cv);
     addEventListener('pointermove', mv);
     return () => { cancelAnimationFrame(raf); io.disconnect(); ro.disconnect(); removeEventListener('pointermove', mv); };
-  }, []);
+  }, [variant]);
   return <canvas ref={ref} className={`field ${className}`} aria-hidden="true" />;
 }

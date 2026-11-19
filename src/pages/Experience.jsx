@@ -4,7 +4,7 @@ import { Wipe, Label, useTitle, CharField } from '../ui';
 
 export default function Experience() {
   useTitle('Experience');
-  const tl = useRef(null), [year, setYear] = useState(journey[0].when.slice(0, 4));
+  const tl = useRef(null), [year, setYear] = useState(journey[0].year);
   useEffect(() => {
     let raf;
     const tick = () => {
@@ -12,7 +12,7 @@ export default function Experience() {
       const b = el.getBoundingClientRect();
       const bar = el.querySelector('.tl-line i');
       if (bar) bar.style.transform = `scaleY(${Math.max(0, Math.min(1, (innerHeight * .55 - b.top) / b.height))})`;
-      let y = journey[0].when.slice(0, 4);
+      let y = journey[0].year;
       el.querySelectorAll('.tl-item').forEach(it => { if (it.getBoundingClientRect().top < innerHeight * .55) y = it.dataset.y; });
       setYear(y);
       raf = requestAnimationFrame(tick);
@@ -64,7 +64,7 @@ export default function Experience() {
         <div className="tl-line" aria-hidden="true"><i /></div>
         <ol className="tl-list">
           {journey.map((j, i) => (
-            <li key={j.title} className="tl-item rv" data-y={j.when.slice(0, 4)} style={{ '--i': 0 }}>
+            <li key={j.title} className="tl-item rv" data-y={j.year} style={{ '--i': 0 }}>
               <span className="tl-dot" />
               <div className="tl-meta mono"><span>{j.when}</span><span className="tag">{j.tag}</span></div>
               <h3>{j.title}</h3>

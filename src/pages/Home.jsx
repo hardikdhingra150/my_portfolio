@@ -1,7 +1,7 @@
 import React, { useEffect, useRef, useState } from 'react';
 import { me, projects } from '../data';
 import { Link } from '../router';
-import { Wipe, Cover, LitText, Marquee, Label, Arrow, useClock, useTitle } from '../ui';
+import { Wipe, Cover, LitText, Marquee, Label, Arrow, useClock, useTitle, CharField } from '../ui';
 
 export function CountUp({ to, suffix = '' }) {
   const ref = useRef(null), [v, set] = useState(0);
@@ -33,7 +33,8 @@ function IssueIndex() {
   }, []);
   const list = projects.slice(0, 8);
   return (
-    <section className="index section">
+    <section className="index section fx">
+        <CharField variant="rain" className="sec-field" />
       <Label n="02">Selected work</Label>
       <div className="index-list" onPointerLeave={() => setHover(null)}>
         {list.map((p, i) => (
@@ -83,7 +84,8 @@ export default function Home() {
         <Marquee items={['WEB', 'MOBILE', 'MACOS', 'AI AGENTS', 'HEALTH TECH', 'WEB3']} px={45} reverse className="tape t2" />
       </div>
 
-      <section className="statement section">
+      <section className="statement section fx">
+        <CharField variant="rain" className="sec-field" />
         <Label n="01">What I do</Label>
         <LitText text="Give me a fuzzy idea and I’ll hand you something you can click. I design, build and test web, mobile and macOS products end to end, from dashboards for solar companies to AI agents that repair their own skills, and I care about the small details that make software feel alive." />
         <div className="stats">
@@ -96,7 +98,8 @@ export default function Home() {
 
       <IssueIndex />
 
-      <section className="explore section">
+      <section className="explore section fx">
+        <CharField variant="rain" className="sec-field" />
         <Label n="03">Keep reading</Label>
         {[
           ['/skills', 'Skills', 'A jar of every tool I’ve shipped with. Grab one and throw it.'],
