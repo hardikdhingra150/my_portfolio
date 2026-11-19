@@ -6,7 +6,7 @@ const KEY = 'hd-intro-seen';
 const T = { sphereIn: .25, implode: 3.05, flash: 3.6, dissolve: 3.75, dissolveLen: 1.25 };
 const LOG = [
   'HD/OS 26.11 — cold boot',
-  '> mounting /work ............ 14 projects',
+  '> mounting /work ............... ok',
   '> linking github/hardikdhingra150 ..... ok',
   '> warming the ember core ......... ok',
   '> rendering portfolio',
@@ -128,7 +128,7 @@ export function playIntro({ onReveal, onDone }) {
     const pct = Math.round(clamp(t / T.flash) ** .8 * 100);
     fctx.globalAlpha = clamp(t * 2) * clamp(1 - glow * .3);
     fctx.textAlign = 'right'; fctx.textBaseline = 'alphabetic'; fctx.fillStyle = PAL.ember;
-    fctx.font = `400 ${Math.min(160, W * .14)}px Anton, Impact, sans-serif`;
+    fctx.font = `700 ${Math.min(160, W * .14)}px "Bricolage Grotesque", Impact, sans-serif`;
     fctx.fillText(String(pct).padStart(3, '0'), W - 20, H - 16);
     fctx.font = '500 11px "JetBrains Mono", monospace'; fctx.fillStyle = PAL.cream; fctx.textAlign = 'left';
     fctx.fillText('CLICK OR PRESS ANY KEY TO SKIP', 20, H - 22);

@@ -1,7 +1,7 @@
 import React, { useMemo, useState } from 'react';
 import { projects, archive } from '../data';
 import { Link } from '../router';
-import { Wipe, Cover, Label, Arrow, AsciiArt, useTitle } from '../ui';
+import { Wipe, Cover, Label, Arrow, AsciiArt, useTitle, CharField } from '../ui';
 
 export function Work() {
   useTitle('Work');
@@ -11,8 +11,9 @@ export function Work() {
   return (
     <>
       <section className="page-head">
-        <div className="ph-meta mono"><span>02 — Work</span><span>{projects.length} issues · all shipped</span></div>
-        <h1 className="ph-word"><Wipe text="WORK" fit maxH={.4} /></h1>
+        <CharField className="head-field" />
+        <div className="ph-meta mono"><span>02 — Work</span><span>Selected projects · 2025–2026</span></div>
+        <h1 className="ph-word"><Wipe text="WORK" fit maxH={.3} /></h1>
         <p className="ph-lede rv">Every project gets its own magazine cover. The art on each one is generated live, in characters. Pick an issue.</p>
       </section>
       <section className="rack section">
@@ -53,6 +54,7 @@ export function Project({ slug }) {
   return (
     <>
       <section className="proj-hero">
+        <CharField className="head-field" />
         <Link to="/work" className="back mono">← All issues</Link>
         <div className="ph-grid">
           <div className="ph-cover"><Cover p={p} link={false} /></div>

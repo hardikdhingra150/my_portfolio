@@ -1,7 +1,7 @@
 import React, { useEffect, useRef } from 'react';
-import { me, now } from '../data';
+import { me, bring } from '../data';
 import { Link } from '../router';
-import { Wipe, Label, LitText, Arrow, useTitle } from '../ui';
+import { Wipe, Label, LitText, Arrow, useTitle, CharField } from '../ui';
 import { getAtlas, PAL } from '../fx/atlas';
 
 function AsciiPortrait() {
@@ -72,8 +72,9 @@ export default function About() {
   return (
     <>
       <section className="page-head">
+        <CharField className="head-field" />
         <div className="ph-meta mono"><span>05 — About</span><span>{me.city}</span></div>
-        <h1 className="ph-word"><Wipe text="ABOUT" fit maxH={.4} /></h1>
+        <h1 className="ph-word"><Wipe text="ABOUT" fit maxH={.3} /></h1>
       </section>
       <section className="about section">
         <div className="ab-portrait rv">
@@ -87,6 +88,7 @@ export default function About() {
           <dl className="facts rv">
             <div><dt className="mono">Based in</dt><dd>{me.city}</dd></div>
             <div><dt className="mono">Studying</dt><dd>B.Tech CSE, 2024 – present</dd></div>
+            <div><dt className="mono">Interned at</dt><dd>CityScene Global, 2026</dd></div>
             <div><dt className="mono">Building</dt><dd>Notchi, SkillForge, GhostAPI</dd></div>
             <div><dt className="mono">Looking for</dt><dd>Internships & collaborations</dd></div>
           </dl>
@@ -105,8 +107,8 @@ export default function About() {
         </div>
       </section>
       <section className="offline section">
-        <Label n="+">Off the keyboard</Label>
-        <div className="off-row">{now.offline.map((o, i) => <span key={o} className="rv" style={{ '--i': i }}>{o}</span>)}</div>
+        <Label n="+">What I bring to a team</Label>
+        <div className="off-row">{bring.map((o, i) => <span key={o} className="rv" style={{ '--i': i }}>{o}</span>)}</div>
       </section>
     </>
   );

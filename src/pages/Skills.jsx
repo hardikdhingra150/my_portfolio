@@ -1,13 +1,13 @@
 import React, { useEffect, useMemo, useRef, useState } from 'react';
-import { skillGroups, projectsUsing } from '../data';
+import { skillGroups, usage } from '../data';
 import { Link } from '../router';
-import { Wipe, Label, useTitle } from '../ui';
+import { Wipe, Label, useTitle, CharField } from '../ui';
 
 const GROUPS = Object.keys(skillGroups);
 
 function Jar({ filter, shakeKey, onPick, picked }) {
   const box = useRef(null), els = useRef([]), bodies = useRef([]), filterRef = useRef(filter);
-  const tokens = useMemo(() => GROUPS.flatMap(g => skillGroups[g].map(s => ({ s, g, n: projectsUsing(s).length }))), []);
+  const tokens = useMemo(() => GROUPS.flatMap(g => skillGroups[g].map(s => ({ s, g, n: usage(s).length }))), []);
   filterRef.current = filter;
 
   useEffect(() => {
@@ -85,13 +85,14 @@ export default function Skills() {
   const [filter, setFilter] = useState('All'), [shake, setShake] = useState(0);
   const [picked, setPicked] = useState(null);
   const onPick = useMemo(() => t => setPicked(t), []);
-  const used = picked ? projectsUsing(picked.s) : [];
+  const used = picked ? usage(picked.s) : [];
   return (
     <>
       <section className="page-head">
+        <CharField className="head-field" />
         <div className="ph-meta mono"><span>03 — Skills</span><span>{Object.values(skillGroups).flat().length} tools in the jar</span></div>
-        <h1 className="ph-word"><Wipe text="SKILLS" fit maxH={.4} /></h1>
-        <p className="ph-lede rv">No progress bars, no made-up percentages. Every token is a tool I’ve shipped with, and it gets bigger the more projects on this site use it. Grab one and throw it.</p>
+        <h1 className="ph-word"><Wipe text="SKILLS" fit maxH={.3} /></h1>
+        <p className="ph-lede rv">No progress bars, no made-up percentages. Every token is a tool I’ve shipped with, and it gets bigger the more of my projects (and my internship) use it. Grab one and throw it.</p>
       </section>
       <section className="skills section">
         <div className="sk-bar rv">
@@ -107,8 +108,8 @@ export default function Skills() {
               <>
                 <span className="mono">{picked.g}</span>
                 <h3>{picked.s}</h3>
-                <p>{used.length ? `Used in ${used.length} project${used.length > 1 ? 's' : ''} on this site:` : 'Part of the toolkit — used in projects and coursework outside this site.'}</p>
-                <div className="sk-used">{used.map(p => <Link key={p.slug} to={`/work/${p.slug}`} label={p.name}>{p.name} ↗</Link>)}</div>
+                <p>{used.length ? `Used in ${used.length} place${used.length > 1 ? 's' : ''}:` : 'Part of the toolkit — used in coursework and experiments.'}</p>
+                <div className="sk-used">{used.map(u => <Link key={u.name} to={u.to} label={u.name}>{u.name} ↗</Link>)}</div>
                 <button className="mono" onClick={() => setPicked(null)}>Close ✕</button>
               </>
             ) : <p className="mono">Click a token to see where it’s been used.</p>}
@@ -120,11 +121,27 @@ export default function Skills() {
         <div className="tb-grid">
           {GROUPS.map((g, i) => (
             <div key={g} className="tb rv" style={{ '--i': i }}>
-              <h3><span className={`sw g${i}`} />{g}</h3>
-              <ul>{skillGroups[g].map(s => <li key={s}>{s}<span className="mono">{projectsUsing(s).length || '·'}</span></li>)}</ul>
+              <div className="tb-head">
+                <span className={`sw g${i}`} />
+                <h3>{g}</h3>
+                <span className="mono tb-count">{String(skillGroups[g].length).padStart(2, '0')}</span>
+              </div>
+              <ul>
+                {skillGroups[g].map((s, k) => {
+                  const n = usage(s).length;
+                  return (
+                    <li key={s} style={{ '--k': k }}>
+                      <span>{s}</span>
+                      <i className="tb-bar" style={{ '--n': Math.min(1, n / 6) }} />
+                      <span className="mono">{n ? `${n}×` : '—'}</span>
+                    </li>
+                  );
+                })}
+              </ul>
             </div>
           ))}
         </div>
+        <p className="mono tb-note">Number = how many projects (and the internship) use it</p>
       </section>
     </>
   );

@@ -26,7 +26,7 @@ export const projects = [
     live: 'https://notchi-plum.vercel.app', repo: 'Notchi', art: 'notch', theme: 'cream', featured: true,
   },
   {
-    slug: 'skillforge', cover: 'FORGE', name: 'SkillForge', year: 2026, kind: 'AI agents · Infrastructure', cat: 'AI',
+    slug: 'skillforge', cover: 'SKILLFORGE', name: 'SkillForge', year: 2026, kind: 'AI agents · Infrastructure', cat: 'AI',
     tagline: 'Build what’s missing, repair what breaks, remember what works.',
     lines: ['SKILLS THAT', 'REPAIR', 'THEMSELVES'],
     summary: 'Self-evolving skill infrastructure for AI agents. Ask anything or drop in a spreadsheet: SkillForge reuses a skill, writes a new one, tests it in a sandbox, has a second model check the answer and saves it for everyone.',
@@ -35,7 +35,7 @@ export const projects = [
     live: 'https://skillforge-beta-lilac.vercel.app', repo: 'SkillForge', art: 'gear', theme: 'ember', featured: true,
   },
   {
-    slug: 'trackmind', cover: 'TRACK', name: 'TrackMind AI', year: 2026, kind: 'Railways · ML', cat: 'AI',
+    slug: 'trackmind', cover: 'TRACKMIND', name: 'TrackMind AI', year: 2026, kind: 'Railways · ML', cat: 'AI',
     tagline: 'Real-time railway operations intelligence.',
     lines: ['SEE THE', 'CONFLICT', 'BEFORE IT HAPPENS'],
     summary: 'A full-stack railway monitoring platform for section-level visibility: live train tracking, conflict detection, explainable delay prediction and controller-facing recommendations.',
@@ -44,7 +44,7 @@ export const projects = [
     live: null, repo: 'trackrail', art: 'rails', theme: 'dark', featured: true,
   },
   {
-    slug: 'ghostapi', cover: 'GHOST', name: 'GhostAPI', year: 2026, kind: 'Developer tools · Automation', cat: 'Tools',
+    slug: 'ghostapi', cover: 'GHOSTAPI', name: 'GhostAPI', year: 2026, kind: 'Developer tools · Automation', cat: 'Tools',
     tagline: 'APIs for websites that never had one.',
     lines: ['NO API?', 'NOW THERE', 'IS ONE'],
     summary: 'GhostAPI drives browser workflows with Playwright, stores the workflow definition, records every run and exposes the result as a normal HTTP API returning clean JSON.',
@@ -53,7 +53,7 @@ export const projects = [
     live: 'https://ghostapi-eight.vercel.app/', repo: 'Ghost_Api', art: 'ghost', theme: 'dark',
   },
   {
-    slug: 'mamacare', cover: 'MAMA', name: 'MamaCare', year: 2026, kind: 'Health · AI', cat: 'Health',
+    slug: 'mamacare', cover: 'MAMACARE', name: 'MamaCare', year: 2026, kind: 'Health · AI', cat: 'Health',
     tagline: 'AI health companion for women in India.',
     lines: ['CARE THAT', 'CALLS YOU', 'FIRST'],
     summary: 'A full-stack AI health assistant focused on maternal health and PCOS management, combining risk monitoring, a WhatsApp chatbot and automated health calls.',
@@ -62,7 +62,7 @@ export const projects = [
     live: 'https://maternity-76579.web.app/', repo: 'MamaCare', art: 'pulse', theme: 'ember',
   },
   {
-    slug: 'dronaconnect', cover: 'DRONA', name: 'DronaConnect', year: 2026, kind: 'Education · ERP', cat: 'Web',
+    slug: 'dronaconnect', cover: 'DRONACONNECT', name: 'DronaConnect', year: 2026, kind: 'Education · ERP', cat: 'Web',
     tagline: 'A whole college, in one portal.',
     lines: ['ONE PORTAL', 'EVERY', 'CLASSROOM'],
     summary: 'A full-stack academic ERP portal that streamlines college operations across Admin, Teacher and Student roles. Deployed on Vercel.',
@@ -71,7 +71,7 @@ export const projects = [
     live: 'https://dronaconnect.vercel.app', repo: 'Dronaconnect', art: 'grid', theme: 'cream',
   },
   {
-    slug: 'hackrons', cover: 'HACK', name: 'Hackrons', year: 2026, kind: 'Web3 · Game', cat: 'Web3',
+    slug: 'hackrons', cover: 'HACKRONS', name: 'Hackrons', year: 2026, kind: 'Web3 · Game', cat: 'Web3',
     tagline: 'Collect, trade and battle NFT warriors.',
     lines: ['PLAY.', 'BATTLE.', 'EARN.'],
     summary: 'A full-stack Web3 NFT battle game on the Polygon blockchain. Players collect, trade and battle NFT characters with MetaMask.',
@@ -80,7 +80,7 @@ export const projects = [
     live: 'https://hackrons.vercel.app', repo: 'Hackrons', art: 'hex', theme: 'dark',
   },
   {
-    slug: 'errorbuddy', cover: 'ERROR', name: 'ErrorBuddy', year: 2026, kind: 'Python CLI · PyPI', cat: 'Tools',
+    slug: 'errorbuddy', cover: 'ERRORBUDDY', name: 'ErrorBuddy', year: 2026, kind: 'Python CLI · PyPI', cat: 'Tools',
     tagline: 'Runtime errors, explained like a friend would.',
     lines: ['READ THE', 'ERROR.', 'GET THE FIX.'],
     summary: 'A Python CLI published on PyPI that turns runtime errors into human-readable explanations with fixes, examples and smart hints.',
@@ -98,7 +98,7 @@ export const projects = [
     live: 'https://healix-khaki.vercel.app', repo: 'Healix', art: 'cross', theme: 'ember',
   },
   {
-    slug: 'medbridge', cover: 'BRIDGE', name: 'MedBridge', year: 2026, kind: 'Health · Interoperability', cat: 'Health',
+    slug: 'medbridge', cover: 'MEDBRIDGE', name: 'MedBridge', year: 2026, kind: 'Health · Interoperability', cat: 'Health',
     tagline: 'Two medical vocabularies, one gateway.',
     lines: ['DUAL-CODED', 'BY', 'DESIGN'],
     summary: 'A demonstration terminology gateway that links synthetic NAMASTE concepts to synthetic ICD-11 TM2 targets through human-reviewed mappings.',
@@ -107,11 +107,11 @@ export const projects = [
     live: null, repo: 'MedBridge', art: 'bridge', theme: 'dark',
   },
   {
-    slug: 'axiom', cover: 'AXIOM', name: 'AXIOM', year: 2026, kind: 'Smart India Hackathon', cat: 'Web',
+    slug: 'axiom', cover: 'AXIOM', name: 'AXIOM', year: 2026, kind: 'Hackathon · Optics', cat: 'Web',
     tagline: 'A virtual free-space optical communication lab.',
     lines: ['LIGHT', 'AS A', 'NETWORK'],
-    summary: 'A virtual FSOC (free-space optical communication) laboratory built for Smart India Hackathon problem statement 26169 with Team Naut IQ.',
-    features: ['Interactive virtual lab for free-space optical links', 'Runs fully offline: no CDN, cloud login or optical hardware needed', 'Built with TypeScript for SIH 26169'],
+    summary: 'A virtual FSOC (free-space optical communication) laboratory built at a national hackathon with Team Naut IQ.',
+    features: ['Interactive virtual lab for free-space optical links', 'Runs fully offline: no CDN, cloud login or optical hardware needed', 'Built with TypeScript and Next.js'],
     stack: ['TypeScript', 'Next.js', 'React'],
     live: null, repo: 'AXIOM', art: 'beam', theme: 'ember',
   },
@@ -125,7 +125,7 @@ export const projects = [
     live: 'https://nexus-eight-gray.vercel.app', repo: 'Nexus', art: 'orb', theme: 'dark',
   },
   {
-    slug: 'macpreview', cover: 'PREVIEW', name: 'MacPreview Studio', year: 2026, kind: 'macOS · Open source', cat: 'macOS',
+    slug: 'macpreview', cover: 'MACPREVIEW', name: 'MacPreview Studio', year: 2026, kind: 'macOS · Open source', cat: 'macOS',
     tagline: 'Apple Preview speed, with the tools you actually need.',
     lines: ['MARK IT', 'SIGN IT', 'SHIP IT'],
     summary: 'An open-source macOS document preview and markup app built with SwiftUI, AppKit and PDFKit.',
@@ -134,7 +134,7 @@ export const projects = [
     live: 'https://hardikdhingra150.github.io/Mac-Preview-Studio/', repo: 'Mac-Preview-Studio', art: 'page', theme: 'cream',
   },
   {
-    slug: 'chef-ai', cover: 'CHEF', name: 'Chef AI', year: 2026, kind: 'Sustainability · AI', cat: 'AI',
+    slug: 'chef-ai', cover: 'CHEF AI', name: 'Chef AI', year: 2026, kind: 'Sustainability · AI', cat: 'AI',
     tagline: 'Less food in the bin, more on the plate.',
     lines: ['COOK', 'WHAT YOU', 'HAVE'],
     summary: 'An AI-powered platform to reduce food waste: it tracks inventory, predicts waste patterns and suggests recipes from what is already in the kitchen.',
@@ -146,7 +146,7 @@ export const projects = [
 
 export const archive = [
   ['HealthQrApp', 'Medical records behind one QR code', 'https://healthqrapp.onrender.com'],
-  ['Ayunex', 'Ayurveda IP research workspace · SIH 26045', 'https://github.com/hardikdhingra150/Ayunex'],
+  ['Ayunex', 'Ayurveda IP research workspace, a hackathon build', 'https://github.com/hardikdhingra150/Ayunex'],
   ['Resume Builder', 'Build a résumé in the browser', 'https://resume-builder-nu-blush.vercel.app'],
   ['Expense Tracker', 'Mobile expense tracker built with Expo', 'https://github.com/hardikdhingra150/Expense_Tracker_App'],
   ['Cineverse', 'Movie discovery app', 'https://github.com/hardikdhingra150/Cineverse'],
@@ -157,9 +157,9 @@ export const archive = [
 ];
 
 export const skillGroups = {
-  Languages: ['Python', 'JavaScript', 'TypeScript', 'SQL', 'Swift', 'C++', 'C', 'Java', 'Solidity', 'HTML & CSS'],
-  Frontend: ['React', 'Next.js', 'Vite', 'Tailwind CSS', 'SwiftUI'],
-  Backend: ['Node.js', 'FastAPI', 'Flask', 'Django', 'Fastify', 'PostgreSQL', 'MySQL', 'Firebase', 'Supabase'],
+  Languages: ['Python', 'JavaScript', 'TypeScript', 'SQL', 'Dart', 'Swift', 'C++', 'C', 'Java', 'Solidity', 'HTML & CSS', 'XML'],
+  Frontend: ['React', 'Flutter', 'Next.js', 'Vite', 'Tailwind CSS', 'SwiftUI'],
+  Backend: ['Node.js', 'FastAPI', 'Flask', 'Django', 'Fastify', 'Prisma', 'PostgreSQL', 'MySQL', 'Firebase', 'Supabase'],
   'AI & Data': ['LLMs', 'ML', 'Gemini', 'Pandas', 'NumPy', 'Matplotlib', 'Playwright'],
   'Web3': ['Hardhat', 'Polygon', 'MetaMask'],
   Tools: ['Git & GitHub', 'Vercel', 'Homebrew', 'VS Code', 'PyCharm'],
@@ -171,6 +171,12 @@ export function projectsUsing(skill) {
   const keys = alias[skill] || [skill];
   return projects.filter(p => p.stack.some(s => keys.includes(s)));
 }
+// projects plus the internship, for token sizes and the "used in" list
+export function usage(skill) {
+  const list = projectsUsing(skill).map(p => ({ name: p.name, to: `/work/${p.slug}` }));
+  if (internship.stack.includes(skill)) list.unshift({ name: 'CityScene Global internship', to: '/experience' });
+  return list;
+}
 
 export const journey = [
   { when: '2024', tag: 'Education', title: 'Started B.Tech in Computer Science', place: 'Dronacharya College of Engineering, Gurugram', text: 'First C programs in semester one, then a first Flask app in August 2024. That was enough to get hooked.' },
@@ -178,17 +184,31 @@ export const journey = [
   { when: '2026 · Jan', tag: 'Web3', title: 'Shipped Hackrons', place: 'Polygon · Solidity · React', text: 'A full NFT battle game: minting contracts, an 18+ warrior marketplace, turn-based AI battles and POL rewards.' },
   { when: '2026 · Feb–Apr', tag: 'AI & Health', title: 'A run of AI and health products', place: 'MamaCare · Healix · Chef AI · TrackMind AI', text: 'ML risk scoring with WhatsApp alerts for expecting mothers, post-discharge monitoring, food-waste AI and live railway conflict detection.' },
   { when: '2026 · Mar', tag: 'Open source', title: 'Published ErrorBuddy on PyPI', place: 'pip install errorbuddy', text: 'A CLI that explains Python runtime errors in plain language. In the same month, DronaConnect went live as a full college ERP.' },
-  { when: '2026', tag: 'Hackathons', title: 'Smart India Hackathon builds', place: 'AXIOM (PS 26169, Team Naut IQ) · AYUNEX (PS 26045)', text: 'A virtual free-space optical communication lab and an Ayurveda IP research workspace, plus the MedBridge terminology gateway.' },
-  { when: '2026 · Sep–Nov', tag: 'Now', title: 'Open-source products for real users', place: 'Notchi · SkillForge · GhostAPI', text: 'A whole-desktop macOS theming suite with its own Homebrew tap, self-repairing skills for AI agents, and APIs for websites that never had one.' },
+  { when: '2026 · Jun–Jul', tag: 'Internship', title: 'Software Development Intern', place: 'CityScene Global Pvt. Ltd. · 60-day hybrid', text: 'Contributed to five web and mobile applications across three client projects: two solar companies and an internal HRMS.' },
+  { when: '2026 · Aug–Oct', tag: 'Hackathons', title: 'National hackathon builds', place: 'AXIOM · AYUNEX · MedBridge', text: 'A virtual free-space optical communication lab with Team Naut IQ, an Ayurveda IP research workspace and a dual-coded medical terminology gateway. Three hackathon wins so far.' },
+  { when: '2026 · Sep–Nov', tag: 'Open source', title: 'Open-source products for real users', place: 'Notchi · SkillForge · GhostAPI', text: 'A whole-desktop macOS theming suite with its own Homebrew tap, self-repairing skills for AI agents, and APIs for websites that never had one.' },
 ];
 
 export const highlights = [
-  ['2×', 'Hackathon winner'],
+  ['3×', 'Hackathon winner'],
+  ['60', 'Days interning at CityScene Global'],
+  ['5', 'Apps contributed to as an intern'],
   ['1', 'Package on PyPI'],
-  ['14', 'Projects on this site'],
-  ['NSS', 'Volunteer, camp participant'],
-  ['🏅', 'College sports medal'],
 ];
+
+export const internship = {
+  role: 'Software Development Intern',
+  company: 'CityScene Global Pvt. Ltd.',
+  when: '1 June – 31 July 2026',
+  mode: '60-day hybrid internship',
+  summary: 'Contributed to five applications across three projects: mapping user flows, supporting web and mobile interface development, checking responsive layouts and form behaviour, and documenting testing observations.',
+  projects: [
+    { name: 'MK Solar', platform: 'Web + mobile', text: 'Dashboards, customer enquiry management, project tracking and reporting. Reviewed how project summaries, navigation and notifications worked on mobile.' },
+    { name: 'Dharti Solar', platform: 'Web + mobile', text: 'Enquiry tracking and admin screens, including user management and settings. Reviewed the mobile project-creation form that captures customer, site and system details.' },
+    { name: 'HRMS', platform: 'Internal mobile app', text: 'Employee workflows for attendance, check-in and check-out, profiles, and leave, travel and expense requests, with request and approval status tracking.' },
+  ],
+  stack: ['TypeScript', 'JavaScript', 'Flutter', 'Dart', 'XML', 'SQL', 'Prisma', 'Git & GitHub'],
+};
 
 export const education = [
   ['B.Tech, Computer Science & Engineering', 'Dronacharya College of Engineering, Gurugram', '2024 – present · CGPA 7.6'],
@@ -197,14 +217,8 @@ export const education = [
 ];
 export const certificates = ['Udemy — Learn React JS the Fast Way', 'Udemy — Master Git and GitHub'];
 
-export const now = {
-  building: [['Notchi', 'Whole-desktop theming for macOS, v0.1', '/work/notchi'], ['SkillForge', 'Self-repairing skills for AI agents', '/work/skillforge'], ['GhostAPI', 'Browser workflows as JSON APIs', '/work/ghostapi']],
-  learning: ['SwiftUI & AppKit internals', 'Agent systems that verify their own output', 'PostgreSQL beyond CRUD', 'Motion and interaction design'],
-  looking: 'Internships and collaborations where I can ship real things with a good team.',
-  offline: ['Badminton', 'Cricket', 'Kitchen experiments'],
-  updated: 'November 2026',
-};
+export const bring = ['Product sense', 'Clean interfaces', 'Fast iteration', 'Clear docs', 'Honest testing'];
 
 export const routes = [
-  ['/', 'Home'], ['/work', 'Work'], ['/skills', 'Skills'], ['/experience', 'Experience'], ['/about', 'About'], ['/now', 'Now'], ['/contact', 'Contact'],
+  ['/', 'Home'], ['/work', 'Work'], ['/skills', 'Skills'], ['/experience', 'Experience'], ['/about', 'About'], ['/contact', 'Contact'],
 ];

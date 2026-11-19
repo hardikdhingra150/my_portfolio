@@ -3,16 +3,19 @@ import { Link, navigate, usePath } from './router';
 import { me, projects, routes } from './data';
 import { renderArt } from './fx/art';
 import { replayIntro } from './fx/loader';
+import { getAtlas } from './fx/atlas';
 
 export const Arrow = ({ d = 'ne' }) => <span className={`arr arr-${d}`} aria-hidden="true">{d === 'down' ? '↓' : d === 'e' ? '→' : '↗'}</span>;
 
 export function useTitle(t) { useEffect(() => { document.title = t ? `${t} — Hardik Dhingra` : 'Hardik Dhingra — Developer & Builder'; }, [t]); }
 
 export function Mark({ size = 34 }) {
+  // HD monogram: a rounded tile with the H and D drawn as strokes, plus a blinking caret
   return (
     <svg className="mark" width={size} height={size} viewBox="0 0 40 40" aria-hidden="true">
-      <g className="mark-spin">{[0, 45, 90, 135].map(a => <rect key={a} x="17.5" y="3" width="5" height="34" rx="2.5" transform={`rotate(${a} 20 20)`} fill="currentColor" />)}</g>
-      <circle cx="20" cy="20" r="4.2" fill="var(--bg)" />
+      <rect x="1" y="1" width="38" height="38" rx="10" fill="currentColor" />
+      <path d="M9.5 11.5v17M9.5 20h7.5M17 11.5v17M22.5 11.5v17h3.2a8.5 8.5 0 0 0 0-17z" fill="none" stroke="var(--bg)" strokeWidth="3.2" strokeLinecap="round" strokeLinejoin="round" />
+      <rect className="mark-caret" x="33" y="25" width="2.6" height="5" rx="1" fill="var(--bg)" />
     </svg>
   );
 }
@@ -26,22 +29,23 @@ export function useClock() {
 }
 
 /* ---------- letter-by-letter wipe; `fit` stretches the word edge to edge ---------- */
-// maxH (fraction of viewport height) squashes the word vertically when it would get too tall.
+// maxH (fraction of viewport height) caps how tall the word may get.
 export function Wipe({ text, className = '', fit = false, maxH = 0, delay = 0, as: Tag = 'span', gate = true, step = .06 }) {
   const ref = useRef(null);
   useLayoutEffect(() => {
     if (!fit) return;
     const el = ref.current;
     const run = () => {
-      el.style.fontSize = '100px'; el.style.transform = ''; el.style.marginBottom = '';
+      el.style.fontSize = '100px';
       const w = el.scrollWidth, box = el.parentElement.clientWidth;
       if (!w) return;
-      const fs = (box / w) * 100; el.style.fontSize = fs + 'px';
-      const cap = fs * .74, lim = maxH * innerHeight;
-      if (maxH && cap > lim) { el.style.transformOrigin = '50% 0'; el.style.transform = `scaleY(${lim / cap})`; el.style.marginBottom = `${-el.offsetHeight * (1 - lim / cap)}px`; }
+      let fs = (box / w) * 100;
+      const cap = fs * .7, lim = maxH * innerHeight;
+      if (maxH && cap > lim) fs *= lim / cap; // too tall: shrink, never stretch
+      el.style.fontSize = fs + 'px';
     };
     run();
-    document.fonts?.load('100px Anton').then(run);
+    document.fonts?.load('700 100px "Bricolage Grotesque"').then(run);
     const ro = new ResizeObserver(run); ro.observe(el.parentElement);
     if (maxH) addEventListener('resize', run);
     return () => { ro.disconnect(); removeEventListener('resize', run); };
@@ -70,9 +74,32 @@ export function LitText({ text, className = '' }) {
   return <p ref={ref} className={`lit ${className}`}>{words.map((w, i) => <span key={i}>{w} </span>)}</p>;
 }
 
-export function Marquee({ items, speed = 40, className = '' }) {
-  const row = items.map((t, i) => <React.Fragment key={i}><span>{t}</span><i aria-hidden="true">✦</i></React.Fragment>);
-  return <div className={`marquee ${className}`} aria-hidden="true"><div style={{ '--sp': `${speed}s` }}>{row}{row}{row}{row}</div></div>;
+// Scroll-reactive marquee: speeds up with scroll velocity, flips direction when you scroll up,
+// and leans into the motion. `px` = base speed in px/s, `reverse` starts it the other way.
+export function Marquee({ items, px = 60, reverse = false, className = '' }) {
+  const wrap = useRef(null), track = useRef(null);
+  useEffect(() => {
+    if (matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+    let x = 0, v = 0, dir = reverse ? 1 : -1, lastY = scrollY, last = 0, raf, vis = true;
+    const io = new IntersectionObserver(([e]) => { vis = e.isIntersecting; });
+    io.observe(wrap.current);
+    const loop = now => {
+      const dt = last ? Math.min(.05, (now - last) / 1000) : 0; last = now;
+      const dy = scrollY - lastY; lastY = scrollY;
+      if (Math.abs(dy) > 1) dir = (dy > 0 ? -1 : 1) * (reverse ? -1 : 1);
+      v += (Math.min(60, Math.abs(dy)) * 40 - v) * .08;
+      if (vis) {
+        const half = track.current.scrollWidth / 2;
+        x += dir * (px + v) * dt; if (x <= -half) x += half; if (x > 0) x -= half;
+        track.current.style.transform = `translate3d(${x}px,0,0) skewX(${dir * -Math.min(14, v / 120)}deg)`;
+      }
+      raf = requestAnimationFrame(loop);
+    };
+    raf = requestAnimationFrame(loop);
+    return () => { cancelAnimationFrame(raf); io.disconnect(); };
+  }, [px, reverse]);
+  const row = items.map((t, i) => <React.Fragment key={i}><span className={i % 2 ? 'o' : ''}>{t}</span><i aria-hidden="true">✦</i></React.Fragment>);
+  return <div ref={wrap} className={`marquee ${className}`} aria-hidden="true"><div ref={track}>{row}{row}{row}{row}</div></div>;
 }
 
 /* ---------- ASCII art canvas that only animates while visible ---------- */
@@ -222,7 +249,7 @@ export function Footer() {
     <footer className="foot">
       <Link to="/contact" className="foot-cta" data-cursor="Say hi">
         <span className="mono">Got an idea?</span>
-        <Marquee items={['LET’S BUILD IT', 'SAY HELLO', 'START A PROJECT']} speed={22} className="foot-mq" />
+        <Marquee items={['LET’S BUILD IT', 'SAY HELLO', 'START A PROJECT']} px={90} className="foot-mq" />
       </Link>
       <div className="foot-grid">
         <div><span className="mono">Pages</span>{routes.map(([to, l]) => <Link key={to} to={to}>{l}</Link>)}</div>
@@ -237,3 +264,37 @@ export function Footer() {
 
 /* ---------- section label ---------- */
 export const Label = ({ n, children }) => <div className="label rv"><span className="n">{n}</span><span>{children}</span><i /></div>;
+
+/* ---------- a field of dim characters: an ambient wave drifts across, and they flare around the cursor ---------- */
+export function CharField({ className = '' }) {
+  const ref = useRef(null);
+  useEffect(() => {
+    const cv = ref.current, ctx = cv.getContext('2d'), dpr = Math.min(devicePixelRatio || 1, 2), CW = 12, CH = 18;
+    let W, H, cols, rows, seed, raf, trail = [], vis = true;
+    const size = () => { W = cv.clientWidth; H = cv.clientHeight; cv.width = W * dpr; cv.height = H * dpr; cols = Math.ceil(W / CW); rows = Math.ceil(H / CH); seed = Float32Array.from({ length: cols * rows }, Math.random); };
+    size();
+    const still = matchMedia('(prefers-reduced-motion: reduce)').matches;
+    const draw = now => {
+      const t = now / 1000, atlas = getAtlas(CW, CH, dpr, 13);
+      ctx.setTransform(1, 0, 0, 1, 0, 0); ctx.clearRect(0, 0, cv.width, cv.height);
+      trail = trail.filter(p => t - p.t < .9);
+      const wx = ((t * .12) % 1.6 - .3) * W; // ambient diagonal sweep
+      for (let r = 0; r < rows; r++) for (let c = 0; c < cols; c++) {
+        const i = r * cols + c, px = c * CW + CW / 2, py = r * CH + CH / 2;
+        let b = seed[i] < .35 ? .05 + .06 * Math.sin(t * 1.5 + seed[i] * 40) : 0;
+        const band = Math.exp(-(((px + py * .6 - wx) / 90) ** 2));
+        if (band > .05 && seed[i] < .6) b = Math.max(b, band * (.25 + .3 * Math.sin(t * 3 + seed[i] * 30)));
+        for (const p of trail) { const d = Math.hypot(px - p.x, py - p.y), age = t - p.t; b = Math.max(b, Math.exp(-d / 60) * (1 - age / .9) * .9); }
+        if (b > .03) atlas.draw(ctx, b, .3 + b * .6, b > .2 ? 'ember' : 'cream', c * CW, r * CH);
+      }
+      if (!still && vis) raf = requestAnimationFrame(draw);
+    };
+    const mv = e => { const b = cv.getBoundingClientRect(); if (e.clientY < b.top || e.clientY > b.bottom) return; trail.push({ x: e.clientX - b.left, y: e.clientY - b.top, t: performance.now() / 1000 }); if (trail.length > 40) trail.shift(); };
+    const io = new IntersectionObserver(([e]) => { vis = e.isIntersecting; cancelAnimationFrame(raf); if (vis) raf = requestAnimationFrame(draw); });
+    io.observe(cv);
+    const ro = new ResizeObserver(size); ro.observe(cv);
+    addEventListener('pointermove', mv);
+    return () => { cancelAnimationFrame(raf); io.disconnect(); ro.disconnect(); removeEventListener('pointermove', mv); };
+  }, []);
+  return <canvas ref={ref} className={`field ${className}`} aria-hidden="true" />;
+}

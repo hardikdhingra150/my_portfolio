@@ -46,7 +46,7 @@ export function wipe(label, swap) {
       if (la > 0 && label) {
         ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
         ctx.globalAlpha = la; ctx.fillStyle = PAL.ember; ctx.textAlign = 'center'; ctx.textBaseline = 'middle';
-        ctx.font = `400 ${Math.min(W * .16, 190)}px Anton, Impact, sans-serif`;
+        ctx.font = `700 ${Math.min(W * .16, 190)}px "Bricolage Grotesque", Impact, sans-serif`;
         ctx.fillText(label.toUpperCase(), W / 2, H / 2 + (1 - la) * 20);
         ctx.font = '500 11px "JetBrains Mono", monospace'; ctx.fillStyle = PAL.cream;
         ctx.fillText('→ LOADING PAGE', W / 2, H / 2 + Math.min(W * .16, 190) * .62);
