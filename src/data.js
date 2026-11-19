@@ -181,14 +181,14 @@ export function usage(skill) {
 export const journey = [
   { year: '2024', when: 'Semester 1 · 2024', tag: 'Day one', title: 'Started B.Tech in Computer Science', place: 'Dronacharya College of Engineering, Gurugram', text: 'Wrote my first C programs, a hangman game in C, and my first Flask app. That was enough to get hooked.' },
   { year: '2025', when: 'Semester 2 · 2025', tag: 'Learning', title: 'Learning the web, properly', place: 'Python · JavaScript · React · Git', text: 'Went deep on HTML, CSS, JavaScript and React, picked up Git and GitHub, and finished Udemy certifications in React and Git & GitHub.' },
-  { year: '2025', when: 'Semester 3 · 2025', tag: 'Hackathons', title: 'First and second place', place: 'hackCBS 9.0 · HackWithMAIT 6.0', text: '1st place at hackCBS 9.0 (SSCBS, Delhi University) in the YugabyteDB track, out of 5,000+ registrations. 2nd place at HackWithMAIT 6.0 in the ES Solutions × CompeteHub sponsored track, out of 2,500+ registrations.' },
+  { year: '2025', when: 'Semester 3 · 2025', tag: 'Hackathons', title: 'First and second place', place: 'Innovortex 3.0 · HackWithMAIT 6.0', text: '1st place at Innovortex 3.0 (TechNeeds IGDTUW, at IIIT Delhi), out of 1,800 participants and 15 offline finalist teams. 2nd place at HackWithMAIT 6.0 in the ES Solutions × CompeteHub sponsored track, out of 2,500+ registrations.' },
   { year: '2026', when: 'Semester 4 · 2026', tag: 'Building', title: 'Shipped ErrorBuddy and DronaConnect', place: 'pip install errorbuddy · dronaconnect.vercel.app', text: 'Published ErrorBuddy on PyPI, a CLI that explains Python errors in plain language, and launched DronaConnect, a college attendance portal with admin, teacher and student dashboards.' },
   { year: '2026', when: 'May – Sept. 2026', tag: 'Experience', title: 'Software Trainee', place: 'CityScene Global Pvt. Ltd. · Jaipur', text: 'Shipped 35+ commits across the MK-Solar web and mobile repos: a 1,600+ line full-stack release, a Flutter app with role-based portals, and hardened document workflows.' },
-  { year: '2026', when: 'Semester 5 · 2026', tag: 'Hackathon', title: 'Third hackathon win', place: 'Innovortex 3.0 · TechNeeds IGDTUW at IIIT Delhi', text: '1st place out of 1,800 participants and 15 offline finalist teams. Alongside it, open-source work: SkillForge, GhostAPI and the Notchi macOS suite.' },
+  { year: '2026', when: 'Semester 5 · 2026', tag: 'Hackathon', title: 'Third hackathon win', place: 'hackCBS 9.0 · SSCBS, Delhi University', text: '1st place in the YugabyteDB track, out of 5,000+ registrations. Alongside it, open-source work: SkillForge, GhostAPI and the Notchi macOS suite.' },
 ];
 
 export const highlights = [
-  ['3×', 'Hackathon winner · hackCBS, HackWithMAIT, Innovortex'],
+  ['3×', 'Hackathon winner · Innovortex, HackWithMAIT, hackCBS'],
   ['8.0', 'CGPA · B.Tech CSE'],
   ['35+', 'Production commits as a Software Trainee'],
   ['GDG', 'Organised an event as Tech Lead'],

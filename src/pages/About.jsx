@@ -76,8 +76,7 @@ export default function About() {
         <div className="ph-meta mono"><span>05 — About</span><span>{me.city}</span></div>
         <h1 className="ph-word"><Wipe text="ABOUT" fit maxH={.3} /></h1>
       </section>
-      <section className="about section fx">
-        <CharField variant="rain" className="sec-field" />
+      <section className="about section">
         <div className="ab-portrait rv">
           <AsciiPortrait />
           <span className="mono">FIG. 01 — Hover to look closer</span>
@@ -99,8 +98,7 @@ export default function About() {
           </div>
         </div>
       </section>
-      <section className="principles section fx">
-        <CharField variant="rain" className="sec-field" />
+      <section className="principles section">
         <Label n="+">How I work</Label>
         <div className="pr-grid">
           {[['Build', 'Get something real on screen fast. Ideas get clearer once they exist.'], ['Test', 'Put it in front of people and real data. Find where it breaks.'], ['Learn', 'Read the failure closely. Most of my best features started as bugs.'], ['Go again', 'Iterate until it earns its place. Then start the next one.']].map(([h, d], i) => (
@@ -108,8 +106,7 @@ export default function About() {
           ))}
         </div>
       </section>
-      <section className="offline section fx">
-        <CharField variant="rain" className="sec-field" />
+      <section className="offline section">
         <Label n="+">What I bring to a team</Label>
         <div className="off-row">{bring.map((o, i) => <span key={o} className="rv" style={{ '--i': i }}>{o}</span>)}</div>
       </section>
